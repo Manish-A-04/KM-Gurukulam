@@ -1,5 +1,5 @@
 'use client';
-
+import AdmissionForm from '@/components/ui/admissionsform'
 import { useState, useEffect } from 'react';
 import { 
   Menu, 
@@ -545,130 +545,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Admissions Section */}
-      <section id="admissions" className="py-20 bg-gradient-to-br from-green-50 to-teal-50 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Admissions section shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              left: '8%',
-              top: '25%',
-              borderLeft: '17px solid transparent',
-              borderRight: '17px solid transparent',
-              borderBottom: '29px solid #0891b2',
-              transform: `translate(${mousePosition.x * 0.022}px, ${mousePosition.y * 0.022}px) rotate(${scrollY * 0.06}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-8 h-8 bg-gradient-to-br from-green-300 to-lime-300 opacity-12 rotate-45"
-            style={{
-              right: '12%',
-              bottom: '20%',
-              transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * 0.02}px) rotate(${45 + scrollY * -0.04}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Admissions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our KM Gurukulam family and give your child the best start in their educational journey.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Admission Process</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Application Form</h4>
-                    <p className="text-gray-600 text-sm">Complete and submit the admission application form with required documents.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">School Visit</h4>
-                    <p className="text-gray-600 text-sm">Schedule a visit to tour our facilities and meet our teachers.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Parent Interview</h4>
-                    <p className="text-gray-600 text-sm">Discuss your child's needs and our educational approach.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">4</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Enrollment</h4>
-                    <p className="text-gray-600 text-sm">Complete enrollment process and join our family!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Important Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">School Hours</p>
-                    <p className="text-gray-600 text-sm">Monday - Friday: 8:00 AM - 3:00 PM</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">Age Groups</p>
-                    <p className="text-gray-600 text-sm">2-5 years (Toddlers to Pre-K)</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <Award className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">Class Size</p>
-                    <p className="text-gray-600 text-sm">Maximum 12 children per class</p>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-4">
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Required Documents:</strong>
-                  </p>
-                  <ul className="text-gray-600 text-sm space-y-1">
-                    <li>• Birth Certificate</li>
-                    <li>• Immunization Records</li>
-                    <li>• Medical History Form</li>
-                    <li>• Emergency Contact Information</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+      {/*/ Admission Section */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+    {/* LEFT SIDE: Important Information */}
+    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6">Important Information</h3>
+      <div className="space-y-6">
+        <div className="flex items-center space-x-3">
+          <Clock className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">School Hours</p>
+            <p className="text-gray-600 text-sm">Monday - Friday: 8:00 AM - 3:00 PM</p>
           </div>
         </div>
-      </section>
+        <div className="flex items-center space-x-3">
+          <Users className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">Age Groups</p>
+            <p className="text-gray-600 text-sm">2-5 years (Toddlers to Pre-K)</p>
+          </div>
+        </div>
+        <div className="flex items-center space-x-3">
+          <Award className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">Class Size</p>
+            <p className="text-gray-600 text-sm">Maximum 12 children per class</p>
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-4">
+          <p className="text-gray-700 text-sm mb-2">
+            <strong>Required Documents:</strong>
+          </p>
+          <ul className="text-gray-600 text-sm space-y-1">
+            <li>• Birth Certificate</li>
+            <li>• Immunization Records</li>
+            <li>• Medical History Form</li>
+            <li>• Emergency Contact Information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    {/* RIGHT SIDE: Admission Form */}
+    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6">Admission Form</h3>
+      <AdmissionForm />
+    </div>
+  </div>
+</div>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-white overflow-hidden relative">
