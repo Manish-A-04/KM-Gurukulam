@@ -138,7 +138,7 @@ export default function Home() {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Programs', 'Faculty', 'Admissions', 'Contact'].map((item) => (
+              {['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -181,6 +181,7 @@ export default function Home() {
       <section id="home" className="w-screen h-screen pt-[25vh] md:pt-[30vh] overflow-hidden relative">
         <div className="absolute inset-0 pointer-events-none">
           {/* Hero section geometric shapes */}
+          
           <DotLottieReact
                 src="https://lottie.host/ed4a36bb-9c5c-4f4d-ab9a-cea2f08f67f7/W09833SiNi.lottie"
                 loop
@@ -338,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* Faculty Section */}
-      <section id="faculty" className="py-20 bg-white relative">
+      <section id="founder" className="py-20 bg-white relative">
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
