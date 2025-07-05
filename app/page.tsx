@@ -1,4 +1,5 @@
 'use client';
+import AdmissionForm from '@/components/ui/admissionsform'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState, useEffect } from 'react';
 import { 
@@ -373,130 +374,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Admissions Section */}
-      <section id="admissions" className="py-20 bg-gradient-to-br from-green-50 to-teal-50 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Admissions section shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              left: '8%',
-              top: '25%',
-              borderLeft: '17px solid transparent',
-              borderRight: '17px solid transparent',
-              borderBottom: '29px solid #0891b2',
-              transform: `translate(${mousePosition.x * 0.022}px, ${mousePosition.y * 0.022}px) rotate(${scrollY * 0.06}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-8 h-8 bg-gradient-to-br from-green-300 to-lime-300 opacity-12 rotate-45"
-            style={{
-              right: '12%',
-              bottom: '20%',
-              transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * 0.02}px) rotate(${45 + scrollY * -0.04}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Admissions</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our KM Gurukulam family and give your child the best start in their educational journey.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Admission Process</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Application Form</h4>
-                    <p className="text-gray-600 text-sm">Complete and submit the admission application form with required documents.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">School Visit</h4>
-                    <p className="text-gray-600 text-sm">Schedule a visit to tour our facilities and meet our teachers.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Parent Interview</h4>
-                    <p className="text-gray-600 text-sm">Discuss your child's needs and our educational approach.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">4</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Enrollment</h4>
-                    <p className="text-gray-600 text-sm">Complete enrollment process and join our family!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Important Information</h3>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">School Hours</p>
-                    <p className="text-gray-600 text-sm">Monday - Friday: 8:00 AM - 3:00 PM</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">Age Groups</p>
-                    <p className="text-gray-600 text-sm">2-5 years (Toddlers to Pre-K)</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-3">
-                  <Award className="w-6 h-6 text-green-500" />
-                  <div>
-                    <p className="font-semibold text-gray-800">Class Size</p>
-                    <p className="text-gray-600 text-sm">Maximum 12 children per class</p>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-4">
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Required Documents:</strong>
-                  </p>
-                  <ul className="text-gray-600 text-sm space-y-1">
-                    <li>• Birth Certificate</li>
-                    <li>• Immunization Records</li>
-                    <li>• Medical History Form</li>
-                    <li>• Emergency Contact Information</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+      {/*/ Admission Section */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+    {/* LEFT SIDE: Important Information */}
+    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6">Important Information</h3>
+      <div className="space-y-6">
+        <div className="flex items-center space-x-3">
+          <Clock className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">School Hours</p>
+            <p className="text-gray-600 text-sm">Monday - Friday: 8:00 AM - 3:00 PM</p>
           </div>
         </div>
-      </section>
+        <div className="flex items-center space-x-3">
+          <Users className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">Age Groups</p>
+            <p className="text-gray-600 text-sm">2-5 years (Toddlers to Pre-K)</p>
+          </div>
+        </div>
+        <div className="flex items-center space-x-3">
+          <Award className="w-6 h-6 text-green-500 flex-shrink-0" />
+          <div>
+            <p className="font-semibold text-gray-800">Class Size</p>
+            <p className="text-gray-600 text-sm">Maximum 12 children per class</p>
+          </div>
+        </div>
+        <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-4">
+          <p className="text-gray-700 text-sm mb-2">
+            <strong>Required Documents:</strong>
+          </p>
+          <ul className="text-gray-600 text-sm space-y-1">
+            <li>• Birth Certificate</li>
+            <li>• Immunization Records</li>
+            <li>• Medical History Form</li>
+            <li>• Emergency Contact Information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    {/* RIGHT SIDE: Admission Form */}
+    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6">Admission Form</h3>
+      <AdmissionForm />
+    </div>
+  </div>
+</div>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-white overflow-hidden relative">
@@ -599,7 +525,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 77083 54400</p>
                   </div>
                 </div>
                 
@@ -609,7 +535,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Email</p>
-                    <p className="text-gray-600">info@kmgurukulam.com</p>
+                    <p className="text-gray-600">kmgurukulam@gmail.com</p>
                   </div>
                 </div>
                 
@@ -619,7 +545,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Address</p>
-                    <p className="text-gray-600">123 Learning Street, Education City, EC 12345</p>
+                    <p className="text-gray-600">No. 11/1 Ganapathy Colony, Gopalapuram, Chennai</p>
                   </div>
                 </div>
                 
@@ -635,52 +561,17 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Your full name"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Your phone number"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Tell us about your child and any questions you have..."
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-400 to-pink-500 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                >
-                  Send Message
-                </button>
-              </form>
+            <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+              <iframe
+                title="Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d660.6179872959796!2d80.25718654576718!3d13.045901504012328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526639b68e001f%3A0xdaf1bc1db90c2383!2s1%2F1%2C%20Gopalapuram%201st%20St%2C%20Pudupet%2C%20Gopalapuram%2C%20Chennai%2C%20Tamil%20Nadu%20600086!5e0!3m2!1sen!2sin!4v1751697380526!5m2!1sen!2sin"  // Replace with your actual map URL
+                width="100%"
+                height="100%"
+                className="w-full h-[450px] border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -757,10 +648,11 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-300">
-                <p>123 Learning Street</p>
-                <p>Education City, EC 12345</p>
-                <p>+91 98765 43210</p>
-                <p>info@kmgurukulam.com</p>
+                <p>NO. 11/1/1, Ganapathy Colony</p>
+                <p>1st Street, Gopalapuram</p>
+                <p>Chennai</p>
+                <p>+91 77083 54400</p>
+                <p>kmgurukulam@gmail.com</p>
               </div>
             </div>
           </div>
