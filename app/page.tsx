@@ -696,7 +696,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 77083 54400</p>
                   </div>
                 </div>
                 
@@ -706,7 +706,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Email</p>
-                    <p className="text-gray-600">info@kmgurukulam.com</p>
+                    <p className="text-gray-600">kmgurukulam@gmail.com</p>
                   </div>
                 </div>
                 
@@ -716,7 +716,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Address</p>
-                    <p className="text-gray-600">123 Learning Street, Education City, EC 12345</p>
+                    <p className="text-gray-600">No. 11/1 Ganapathy Colony, Gopalapuram, Chennai</p>
                   </div>
                 </div>
                 
@@ -732,52 +732,17 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Your full name"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Your phone number"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                    placeholder="Tell us about your child and any questions you have..."
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-400 to-pink-500 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                >
-                  Send Message
-                </button>
-              </form>
+            <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
+              <iframe
+                title="Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d660.6179872959796!2d80.25718654576718!3d13.045901504012328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526639b68e001f%3A0xdaf1bc1db90c2383!2s1%2F1%2C%20Gopalapuram%201st%20St%2C%20Pudupet%2C%20Gopalapuram%2C%20Chennai%2C%20Tamil%20Nadu%20600086!5e0!3m2!1sen!2sin!4v1751697380526!5m2!1sen!2sin"  // Replace with your actual map URL
+                width="100%"
+                height="100%"
+                className="w-full h-[450px] border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -854,10 +819,11 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-300">
-                <p>123 Learning Street</p>
-                <p>Education City, EC 12345</p>
-                <p>+91 98765 43210</p>
-                <p>info@kmgurukulam.com</p>
+                <p>NO. 11/1/1, Ganapathy Colony</p>
+                <p>1st Street, Gopalapuram</p>
+                <p>Chennai</p>
+                <p>+91 77083 54400</p>
+                <p>kmgurukulam@gmail.com</p>
               </div>
             </div>
           </div>
