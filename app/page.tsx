@@ -6,6 +6,7 @@ import { GallerySection } from '@/components/ui/gallery-section'; //gallary
 import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gallary
 
 import AdmissionForm from '@/components/ui/admissionsform'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState, useEffect } from 'react';
 import { 
   Menu, 
@@ -86,60 +87,46 @@ export default function Home() {
       rating: 5
     }
   ];
-
   const programs = [
     {
-      title: "Little Explorers",
-      age: "2-3 years",
-      description: "Nurturing environment for our youngest learners with focus on sensory development and basic social skills.",
-      features: ["Sensory Play", "Music & Movement", "Basic Motor Skills", "Social Interaction"],
-      color: "bg-gradient-to-br from-pink-400 to-pink-600"
+      title: 'Playgroup Program',
+      age: '1.5 - 3.5 years',
+      description: 'Gentle introduction to learning through play, music, movement, and storytelling.',
+      features: ['Sensory Exploration', 'Social Interaction', 'Creative Arts'],
+      color: 'bg-gradient-to-br from-orange-400 to-pink-500',
     },
     {
-      title: "Creative Minds",
-      age: "3-4 years",
-      description: "Encouraging creativity and imagination through art, music, and storytelling activities.",
-      features: ["Art & Craft", "Story Time", "Music Classes", "Dramatic Play"],
-      color: "bg-gradient-to-br from-purple-400 to-purple-600"
+      title: 'Daycare Services',
+      age: 'Full-Day Care',
+      description: 'Safe, engaging care for children throughout the day with age-appropriate routines, naps, and fun.',
+      features: ['Structured Routine', 'Nutritious Meals', 'Play-based Learning'],
+      color: 'bg-gradient-to-br from-blue-400 to-purple-500',
     },
     {
-      title: "Future Leaders",
-      age: "4-5 years",
-      description: "Preparing children for kindergarten with structured learning and leadership activities.",
-      features: ["Pre-Math Skills", "Reading Readiness", "Science Exploration", "Leadership Skills"],
-      color: "bg-gradient-to-br from-blue-400 to-blue-600"
+      title: 'Clean & Safe Environment',
+      age: 'Our Priority',
+      description: 'Child-friendly spaces with caring staff and regular hygiene practices to ensure a healthy setting.',
+      features: ['Regular Sanitization', 'Secure Premises', 'Caring Staff'],
+      color: 'bg-gradient-to-br from-green-400 to-teal-500',
+    },
+     {
+      title: 'Personal Attention',
+      age: 'Individual Focus',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
     }
   ];
 
   const faculty = [
     {
-      name: "Ms. Priya Sharma",
-      role: "Principal & Lead Educator",
+      name: "Ms. Nima Radhakrishnan",
+      role: "Principal & Founder",
       experience: "15+ years",
       qualifications: "M.Ed in Early Childhood Education",
       specialties: ["Curriculum Development", "Child Psychology", "Parent Communication"]
     },
-    {
-      name: "Ms. Anjali Patel",
-      role: "Senior Teacher",
-      experience: "10+ years",
-      qualifications: "B.Ed in Elementary Education",
-      specialties: ["Creative Arts", "Music & Movement", "Sensory Learning"]
-    },
-    {
-      name: "Mr. Rajesh Kumar",
-      role: "Activity Coordinator",
-      experience: "8+ years",
-      qualifications: "Diploma in Physical Education",
-      specialties: ["Sports & Games", "Outdoor Activities", "Motor Skills Development"]
-    },
-    {
-      name: "Ms. Meera Reddy",
-      role: "Special Needs Coordinator",
-      experience: "12+ years",
-      qualifications: "M.A in Special Education",
-      specialties: ["Inclusive Education", "Individual Support", "Therapy Integration"]
-    }
+   
   ];
 
   
@@ -147,54 +134,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 relative overflow-hidden">
-      {/* Global Background Animation - Geometric Shapes */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Floating triangles */}
-        <div 
-          className="absolute w-0 h-0 opacity-10"
-          style={{
-            left: '10%',
-            top: '20%',
-            borderLeft: '15px solid transparent',
-            borderRight: '15px solid transparent',
-            borderBottom: '25px solid #fb923c',
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) rotate(${scrollY * 0.1}deg)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute w-0 h-0 opacity-10"
-          style={{
-            right: '15%',
-            top: '30%',
-            borderLeft: '12px solid transparent',
-            borderRight: '12px solid transparent',
-            borderBottom: '20px solid #3b82f6',
-            transform: `translate(${mousePosition.x * -0.015}px, ${mousePosition.y * 0.015}px) rotate(${scrollY * -0.08}deg)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        
-        {/* Floating squares */}
-        <div 
-          className="absolute w-6 h-6 bg-pink-300 opacity-10 rotate-45"
-          style={{
-            left: '70%',
-            bottom: '40%',
-            transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * -0.01}px) rotate(${45 + scrollY * 0.05}deg)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute w-8 h-8 bg-green-300 opacity-10 rotate-12"
-          style={{
-            left: '20%',
-            bottom: '60%',
-            transform: `translate(${mousePosition.x * 0.018}px, ${mousePosition.y * 0.018}px) rotate(${12 + scrollY * -0.03}deg)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-      </div>
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg">
@@ -249,41 +188,27 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-16 overflow-hidden relative">
+      <section id="home" className="w-screen h-screen pt-[25vh] md:pt-[30vh] overflow-hidden relative">
         <div className="absolute inset-0 pointer-events-none">
           {/* Hero section geometric shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-15"
-            style={{
-              left: '5%',
-              top: '10%',
-              borderLeft: '20px solid transparent',
-              borderRight: '20px solid transparent',
-              borderBottom: '35px solid #fb7185',
-              transform: `translate(${mousePosition.x * 0.03}px, ${mousePosition.y * 0.03}px) rotate(${scrollY * 0.1}deg)`,
-              transition: 'transform 0.5s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-10 h-10 bg-gradient-to-br from-blue-300 to-purple-300 opacity-15 rotate-45"
-            style={{
-              right: '10%',
-              top: '20%',
-              transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * 0.02}px) rotate(${45 + scrollY * -0.08}deg)`,
-              transition: 'transform 0.5s ease-out'
-            }}
-          />
+          <DotLottieReact
+                src="https://lottie.host/ed4a36bb-9c5c-4f4d-ab9a-cea2f08f67f7/W09833SiNi.lottie"
+                loop
+                autoplay
+                className = "absolute h-[40vh] w-[70vh] md:h-[100vh] md:w-[60vw] md:top-0 md:right-0 "
+              />
+
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
-                Where Little{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">
-                  Dreams
+              <h1 className="text-6xl md:text-6xl font-bold text-gray-800 leading-tight">
+                Little {' '}
+                <span className="md:text-transparent md:bg-clip-text color-black md:bg-gradient-to-r md:from-orange-400 md:to-pink-500 ">
+                  Ones 
                 </span>{' '}
-                Grow Big
+                Stepping Stones
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Welcome to KM Gurukulam, where every child's journey begins with love, learning, and laughter. 
@@ -304,70 +229,20 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-200 to-pink-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl p-6 text-center">
-                    <Users className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-800">200+</h3>
-                    <p className="text-gray-600">Happy Children</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-6 text-center">
-                    <Award className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-800">15+</h3>
-                    <p className="text-gray-600">Years Experience</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-6 text-center">
-                    <GraduationCap className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-800">12+</h3>
-                    <p className="text-gray-600">Expert Teachers</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-6 text-center">
-                    <Star className="w-12 h-12 text-purple-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-800">5</h3>
-                    <p className="text-gray-600">Star Rating</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-white relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* About section shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              left: '8%',
-              top: '15%',
-              borderLeft: '18px solid transparent',
-              borderRight: '18px solid transparent',
-              borderBottom: '30px solid #06b6d4',
-              transform: `translate(${mousePosition.x * 0.025}px, ${mousePosition.y * 0.025}px) rotate(${scrollY * 0.05}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-8 h-8 bg-gradient-to-br from-green-300 to-emerald-300 opacity-12 rotate-12"
-            style={{
-              right: '12%',
-              bottom: '20%',
-              transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * 0.02}px) rotate(${12 + scrollY * -0.03}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">About KM Gurukulam</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              For over 15 years, we've been dedicated to providing exceptional early childhood education 
-              that nurtures young minds and helps children develop the skills they need for lifelong success.
+              At KM Gurukulam, we believe that every child’s early steps are the foundation for a lifetime of learning. Designed especially for playgroup toddlers and daycare services, our school provides a warm, nurturing, and joyful environment where little ones grow with confidence and curiosity.
+
             </p>
           </div>
           
@@ -437,30 +312,6 @@ export default function Home() {
 
       {/* Programs Section */}
       <section id="programs" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Programs section shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              left: '15%',
-              top: '10%',
-              borderLeft: '16px solid transparent',
-              borderRight: '16px solid transparent',
-              borderBottom: '28px solid #a855f7',
-              transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) rotate(${scrollY * 0.08}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-7 h-7 bg-gradient-to-br from-blue-300 to-indigo-300 opacity-12 rotate-45"
-            style={{
-              right: '10%',
-              bottom: '15%',
-              transform: `translate(${mousePosition.x * -0.025}px, ${mousePosition.y * 0.025}px) rotate(${45 + scrollY * -0.06}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -470,7 +321,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
               <div key={index} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className={`${program.color} p-6 text-white`}>
@@ -498,40 +349,17 @@ export default function Home() {
 
       {/* Faculty Section */}
       <section id="faculty" className="py-20 bg-white relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Faculty section shapes */}
-          <div 
-            className="absolute w-6 h-6 bg-gradient-to-br from-orange-300 to-red-300 opacity-12 rotate-12"
-            style={{
-              left: '12%',
-              top: '20%',
-              transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px) rotate(${12 + scrollY * 0.04}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              right: '15%',
-              bottom: '25%',
-              borderLeft: '14px solid transparent',
-              borderRight: '14px solid transparent',
-              borderBottom: '24px solid #10b981',
-              transform: `translate(${mousePosition.x * -0.018}px, ${mousePosition.y * 0.018}px) rotate(${scrollY * -0.05}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Faculty</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Founder</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our experienced and passionate educators are dedicated to nurturing every child's potential.
+              I’m the Director and Principal of Little Orchids Preschool, Royapettah, where I’ve had the joy of shaping early learning experiences for many children. With a heart full of purpose and years of experience, I am proud to begin this new journey with KM Gurukulam — a space where care meets early education.
+
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="">
             {faculty.map((teacher, index) => (
               <div key={index} className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
                 <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
