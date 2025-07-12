@@ -1,7 +1,9 @@
 'use client';
-import AdmissionForm from '@/components/ui/admissionsform'
+import AdmissionForm from '@/components/ui/admissionsform';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { 
   Menu, 
   X, 
@@ -25,6 +27,14 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  //For AOS library 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // default animation duration
+      once: true     // animation happens only once per element
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -122,98 +132,137 @@ export default function Home() {
     },
    
   ];
+  {/* This is for Navbar*/}
+
+
+  // Custom styled hamburger/close icons
+    const MenuIcon = () => (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    );
+
+    const CloseIcon = () => (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    );
+    const navLinks = ['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 relative overflow-hidden">
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-gray-800">KM Gurukulam</span>
-            </div>
-            
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
-                >
-                  {item}
-                </button>
-              ))}
+        <nav style={{ fontFamily: "'Nunito', sans-serif" }} className="bg-navColor/40 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md border-b-4 border-primarypurple/20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-20">
+                    {/* Logo Section */}
+                    <div className="flex-shrink-0 flex items-center space-x-2 cursor-pointer">
+                        <img src="km gurukulam.png" alt="KM Gurukulam" className = "h-[7vh]"/>
+                        {/*<span className="text-2xl font-extrabold text-sky-600 tracking-wider">KM Gurukulam</span>*/}
+                    </div>
+
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center space-x-2">
+                        {navLinks.map((item) => (
+                            <a
+                                key={item}
+                                href={`#${item.toLowerCase()}`}
+                                className="text-gray-700 hover:text-rose-500 hover:bg-amber-200/50 px-4 py-2 rounded-full text-md font-bold transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+                            >
+                                {item}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="inline-flex items-center justify-center p-2 rounded-lg text-sky-600 hover:text-rose-500 hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-300 transition-all duration-300"
+                            aria-expanded={isMenuOpen}
+                        >
+                            <span className="sr-only">Open main menu</span>
+                            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-orange-500 transition-colors duration-200"
+            {/* Mobile Menu */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {['Home', 'About', 'Programs', 'Faculty', 'Admissions', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-500 hover:bg-orange-50 transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
+                <div className="px-2 pt-2 pb-4 space-y-2 sm:px-3 bg-amber-50/90">
+                    {navLinks.map((item) => (
+                        <a
+                            key={item}
+                            href={`#${item.toLowerCase()}`}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:text-rose-500 hover:bg-amber-200 transition-colors duration-200"
+                        >
+                            {item}
+                        </a>
+                    ))}
+                </div>
             </div>
-          </div>
-        )}
-      </nav>
+        </nav>
 
       {/* Hero Section */}
-      <section id="home" className="w-screen h-screen pt-[25vh] md:pt-[30vh] overflow-hidden relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Hero section geometric shapes */}
-          
-          <DotLottieReact
-                src="https://lottie.host/ed4a36bb-9c5c-4f4d-ab9a-cea2f08f67f7/W09833SiNi.lottie"
-                loop
-                autoplay
-                className = "absolute h-[40vh] w-[70vh] md:h-[100vh] md:w-[60vw] md:top-0 md:right-0 "
-              />
+{/* Hero Section */}
+      <section
+        id="home"
+        className="w-[100vw] h-[100vh] pt-[25vh] md:pt-[30vh] overflow-hidden relative"
+      >
+        <img
+          src="lotus-butterfly.png"
+          alt="Lotus and Butterfly"
+          className="absolute right-0 hidden sm:block bottom-0 w-[420px] max-w-[60vw] !opacity-20 pointer-events-none select-none animate-float z-0 blur-[0.5px]"
+          data-aos="zoom-out"
+          data-aos-duration="1500"
+        />
 
-        </div>
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-1 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-6xl md:text-6xl font-bold text-gray-800 leading-tight">
-                Little {' '}
-                <span className="md:text-transparent md:bg-clip-text color-black md:bg-gradient-to-r md:from-orange-400 md:to-pink-500 ">
-                  Ones 
+              <h1
+                className="text-6xl md:text-6xl font-bold text-gray-800 leading-tight"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                Little{' '}
+                <span className="text-transparent bg-clip-text color-black bg-gradient-to-r from-orange-400 to-pink-500">
+                  Ones
                 </span>{' '}
                 Stepping Stones
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Welcome to KM Gurukulam, where every child's journey begins with love, learning, and laughter. 
-                We provide a nurturing environment that fosters creativity, curiosity, and confidence.
+
+              <p
+                className="text-xl text-gray-600 leading-relaxed"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Welcome to KM Gurukulam, where every child's journey begins with love,
+                learning, and laughter. We provide a nurturing environment that fosters
+                creativity, curiosity, and confidence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
+
+              <div
+                className="flex flex-col sm:flex-row gap-4"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
+                <button
                   onClick={() => scrollToSection('admissions')}
                   className="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                 >
                   Enroll Now
                 </button>
-                <button 
+                <button
                   onClick={() => scrollToSection('about')}
                   className="border-2 border-orange-400 text-orange-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-400 hover:text-white transition-all duration-200"
                 >
@@ -221,26 +270,29 @@ export default function Home() {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* About Section */}
+{/* About Section */}
       <section id="about" className="py-20 bg-white relative">
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+
+          {/* Heading */}
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">About KM Gurukulam</h2>
+            <br />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               At KM Gurukulam, we believe that every child’s early steps are the foundation for a lifetime of learning. Designed especially for playgroup toddlers and daycare services, our school provides a warm, nurturing, and joyful environment where little ones grow with confidence and curiosity.
-
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            
+            {/* Features List */}
+            <div className="space-y-8" data-aos="fade-up" data-aos-delay="100">
               <div className="space-y-6">
+                {/* Feature 1 */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Heart className="w-6 h-6 text-white" />
@@ -250,7 +302,8 @@ export default function Home() {
                     <p className="text-gray-600">We create a safe, loving space where children feel secure to explore, learn, and grow.</p>
                   </div>
                 </div>
-                
+
+                {/* Feature 2 */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <BookOpen className="w-6 h-6 text-white" />
@@ -260,7 +313,8 @@ export default function Home() {
                     <p className="text-gray-600">Our curriculum focuses on cognitive, emotional, social, and physical development.</p>
                   </div>
                 </div>
-                
+
+                {/* Feature 3 */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Users className="w-6 h-6 text-white" />
@@ -272,8 +326,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
-            <div className="relative">
+
+            {/* Empty Divs - Optional: Can be removed if unused */}
+            <div className="h-full w-full"></div>
+            <div className="h-full w-full"></div>
+
+            {/* Mission Card */}
+            <div className="relative" data-aos="zoom-in" data-aos-delay="200">
               <div className="bg-gradient-to-r from-orange-200 to-pink-200 rounded-3xl p-8">
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
@@ -298,24 +357,33 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
+
       {/* Programs Section */}
       <section id="programs" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative">
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+
+          {/* Section Heading */}
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Programs</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Age-appropriate programs designed to meet the unique developmental needs of each child.
             </p>
           </div>
-          
+
+          {/* Programs Grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={`${index * 100}`}
+              >
                 <div className={`${program.color} p-6 text-white`}>
                   <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
                   <p className="text-white/90 text-lg">{program.age}</p>
@@ -336,24 +404,32 @@ export default function Home() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Faculty Section */}
+
+      {/* Founder Section */}
       <section id="founder" className="py-20 bg-white relative">
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+
+          {/* Heading */}
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Founder</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               I’m the Director and Principal of Little Orchids Preschool, Royapettah, where I’ve had the joy of shaping early learning experiences for many children. With a heart full of purpose and years of experience, I am proud to begin this new journey with KM Gurukulam — a space where care meets early education.
-
             </p>
           </div>
-          
-          <div className="">
+
+          {/* Founder Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {faculty.map((teacher, index) => (
-              <div key={index} className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                data-aos="flip-left"
+                data-aos-delay={`${index * 100}`}
+              >
                 <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <GraduationCap className="w-12 h-12 text-white" />
                 </div>
@@ -363,7 +439,12 @@ export default function Home() {
                 <p className="text-gray-600 text-sm mb-4">{teacher.qualifications}</p>
                 <div className="space-y-1">
                   {teacher.specialties.map((specialty, specialtyIndex) => (
-                    <span key={specialtyIndex} className="inline-block bg-white text-gray-700 px-2 py-1 rounded-full text-xs mr-1 mb-1">
+                    <span
+                      key={specialtyIndex}
+                      className="inline-block bg-white text-gray-700 px-2 py-1 rounded-full text-xs mr-1 mb-1"
+                      data-aos="zoom-in"
+                      data-aos-delay={`${300 + specialtyIndex * 50}`}
+                    >
                       {specialty}
                     </span>
                   ))}
@@ -371,8 +452,10 @@ export default function Home() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
+
 
       {/*/ Admission Section */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -579,39 +662,12 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Footer section shapes */}
-          <div 
-            className="absolute w-5 h-5 bg-white opacity-8 rotate-45"
-            style={{
-              left: '8%',
-              top: '20%',
-              transform: `translate(${mousePosition.x * 0.01}px, ${mousePosition.y * 0.01}px) rotate(${45 + scrollY * 0.02}deg)`,
-              transition: 'transform 0.3s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-0 h-0 opacity-8"
-            style={{
-              right: '12%',
-              bottom: '25%',
-              borderLeft: '8px solid transparent',
-              borderRight: '8px solid transparent',
-              borderBottom: '14px solid white',
-              transform: `translate(${mousePosition.x * -0.008}px, ${mousePosition.y * 0.008}px) rotate(${scrollY * -0.03}deg)`,
-              transition: 'transform 0.3s ease-out'
-            }}
-          />
-        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-2xl font-bold">KM Gurukulam</span>
+                <img src="/km gurukulam.png" alt="KM Gurukulam" className = "h-[15vh] pr-[4vw]"/>
               </div>
               <p className="text-gray-300 mb-4">
                 Nurturing young minds and building bright futures. Where every child's journey begins with love, learning, and laughter.
