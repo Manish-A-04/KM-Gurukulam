@@ -1,4 +1,7 @@
 'use client';
+import React from 'react';
+import { GallerySection } from '@/components/ui/gallery-section'; //gallary
+import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gallary
 import AdmissionForm from '@/components/ui/admissionsform';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState, useEffect } from 'react';
@@ -152,6 +155,9 @@ export default function Home() {
     );
     const navLinks = ['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'];
 
+
+  
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 relative overflow-hidden">
@@ -507,61 +513,16 @@ export default function Home() {
   </div>
 </div>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white overflow-hidden relative">
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Testimonials section shapes */}
-          <div 
-            className="absolute w-0 h-0 opacity-12"
-            style={{
-              left: '10%',
-              top: '15%',
-              borderLeft: '15px solid transparent',
-              borderRight: '15px solid transparent',
-              borderBottom: '26px solid #ec4899',
-              transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px) rotate(${scrollY * 0.07}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-          <div 
-            className="absolute w-7 h-7 bg-gradient-to-br from-purple-300 to-violet-300 opacity-12 rotate-12"
-            style={{
-              right: '8%',
-              bottom: '20%',
-              transform: `translate(${mousePosition.x * -0.018}px, ${mousePosition.y * 0.018}px) rotate(${12 + scrollY * -0.05}deg)`,
-              transition: 'transform 0.4s ease-out'
-            }}
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">What Parents Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear from our wonderful parents about their experience with KM Gurukulam.
-            </p>
-          </div>
-          
-          <div className="relative">
-            <div className="flex animate-scroll space-x-8">
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-80 bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-6 shadow-lg">
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
-                  <div>
-                    <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Gallery Section (Replaces Testimonials) */}
+      
+       <GallerySection
+        title="Our Gallery"
+        subtitle="A glimpse into the vibrant and joyful learning environment at KM Gurukulam. See our little learners in action!"
+        images={galleryImages}
+        showStats={false} // Stats might not be relevant here, so hiding them
+        autoScrollInterval={4000}
+        className="bg-gradient-to-br from-background to-muted/20 py-20"
+      />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 relative">
@@ -740,3 +701,27 @@ export default function Home() {
     </div>
   );
 }
+
+const galleryImages: GalleryImage[] = [
+    {
+      src: "../images/gallary/img6 (6).png",
+      alt: "photo"
+    },
+    {
+      src: "../images/gallary/img6 (2).png",
+      alt: "Art and craft activity"
+    },
+    {
+      src: "../images/gallary/img6 (3).png",
+      alt: "Outdoor play area"
+    },
+    {
+      src: "../images/gallary/IMG_4293.JPG",
+      alt: "Music and movement session"
+    },
+    {
+      src: "../images/gallary/IMG_4290.JPG",
+      alt: "Music and movement session"
+    }
+
+  ];
