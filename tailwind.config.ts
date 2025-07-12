@@ -20,6 +20,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        navColor: '#FDF3CF',
+        primarypurple: 'rgba(171,28,226,251)',
+        lightpink: 'rgb(213,133,181)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -62,6 +65,10 @@ const config: Config = {
         },
       },
       keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-18px)' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -82,6 +89,7 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        float: 'float 6s ease-in-out infinite',
       },
     },
   },
