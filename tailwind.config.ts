@@ -10,9 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
+        'hero-animated': 'linear-gradient(270deg, #FFFDF2, #FFE9F0, #F4E7FF)',
+        'gradient-animated': "linear-gradient(270deg , #bd16e7ff  , #ef4a89ff, #ffa2deff) " ,
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      backgroundSize: {
+        "size-200": "200% 200%"
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -20,8 +25,13 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        heroStart: "#FFF9EC",
+        heroEnd: "#FFEAF4",
+        gradColorOne : "#bd16e7ff",
+        gradColorTwo : "#ef4a89ff",
+        gradColorThree : "#ffa2deff",
         navColor: '#FDF3CF',
-        primarypurple: 'rgba(171,28,226,251)',
+        pinkPrimary: '#E54B7F',
         lightpink: 'rgb(213,133,181)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -69,6 +79,11 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-18px)' },
         },
+        
+       bgShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -87,6 +102,8 @@ const config: Config = {
         },
       },
       animation: {
+        'hero-bg-move': 'heroBgShift 10s ease infinite',
+         'bg-move': 'bgShift 7s ease infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         float: 'float 6s ease-in-out infinite',

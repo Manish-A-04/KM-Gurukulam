@@ -157,7 +157,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 relative overflow-hidden">
 
       {/* Navbar */}
-        <nav style={{ fontFamily: "'Nunito', sans-serif" }} className="bg-navColor/40 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md border-b-4 border-primarypurple/20">
+        <nav style={{ fontFamily: "'Nunito', sans-serif" }} className="bg-navColor/10 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md border-b-4 border-navColor/20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo Section */}
@@ -213,10 +213,10 @@ export default function Home() {
         </nav>
 
       {/* Hero Section */}
-{/* Hero Section */}
+
       <section
         id="home"
-        className="w-[100vw] h-[100vh] pt-[25vh] md:pt-[30vh] overflow-hidden relative"
+        className=" w-[100vw] h-[100vh] pt-[25vh] md:pt-[30vh] overflow-hidden relative bg-hero-animated bg-size-200 animate-hero-bg-move"
       >
         <img
           src="lotus-butterfly.png"
@@ -235,7 +235,7 @@ export default function Home() {
                 data-aos-delay="100"
               >
                 Little{' '}
-                <span className="text-transparent bg-clip-text color-black bg-gradient-to-r from-orange-400 to-pink-500">
+                <span className="text-transparent bg-clip-text color-black bg-gradient-animated bg-size-200 animate-bg-move">
                   Ones
                 </span>{' '}
                 Stepping Stones
@@ -258,14 +258,25 @@ export default function Home() {
               >
                 <button
                   onClick={() => scrollToSection('admissions')}
-                  className="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  className="text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-10000 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
                 >
                   Enroll Now
                 </button>
                 <button
                   onClick={() => scrollToSection('about')}
-                  className="border-2 border-orange-400 text-orange-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-orange-400 hover:text-white transition-all duration-200"
-                >
+                  className="px-8 py-4 rounded-full text-lg font-semibold border-2 transition-all duration-300"
+                  style={{
+                    borderColor: '#E54B7F',
+                    color: '#E54B7F',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#E54B7F';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#E54B7F';
+                  }}>
                   Learn More
                 </button>
               </div>
@@ -505,7 +516,7 @@ export default function Home() {
       <AdmissionForm />
     </div>
   </div>
-</div>
+      </div>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-white overflow-hidden relative">
