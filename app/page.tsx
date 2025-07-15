@@ -62,38 +62,6 @@ export default function Home() {
     setIsMenuOpen(false);
   };
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Parent of Emma (4 years)",
-      content: "KM Gurukulam has been amazing for our daughter. The teachers are so caring and the environment is perfect for learning and growth.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Parent of Alex (3 years)",
-      content: "The curriculum is well-structured and my son loves going to school every day. The facilities are top-notch and very safe.",
-      rating: 5
-    },
-    {
-      name: "Amanda Rodriguez",
-      role: "Parent of Sofia (5 years)",
-      content: "Outstanding pre-school! My daughter has developed so much confidence and social skills. Highly recommend KM Gurukulam.",
-      rating: 5
-    },
-    {
-      name: "David Kim",
-      role: "Parent of Noah (4 years)",
-      content: "The teachers genuinely care about each child's individual development. Great communication with parents too.",
-      rating: 5
-    },
-    {
-      name: "Lisa Thompson",
-      role: "Parent of Maya (3 years)",
-      content: "Clean, safe environment with engaging activities. My daughter has learned so much and made wonderful friends.",
-      rating: 5
-    }
-  ];
   const programs = [
     {
       title: 'Playgroup Program',
@@ -101,6 +69,7 @@ export default function Home() {
       description: 'Gentle introduction to learning through play, music, movement, and storytelling.',
       features: ['Sensory Exploration', 'Social Interaction', 'Creative Arts'],
       color: 'bg-gradient-to-br from-orange-400 to-pink-500',
+      image: "child_play1.webp"
     },
     {
       title: 'Daycare Services',
@@ -108,6 +77,7 @@ export default function Home() {
       description: 'Safe, engaging care for children throughout the day with age-appropriate routines, naps, and fun.',
       features: ['Structured Routine', 'Nutritious Meals', 'Play-based Learning'],
       color: 'bg-gradient-to-br from-blue-400 to-purple-500',
+      image: "child_play1.webp"
     },
     {
       title: 'Clean & Safe Environment',
@@ -115,6 +85,7 @@ export default function Home() {
       description: 'Child-friendly spaces with caring staff and regular hygiene practices to ensure a healthy setting.',
       features: ['Regular Sanitization', 'Secure Premises', 'Caring Staff'],
       color: 'bg-gradient-to-br from-green-400 to-teal-500',
+      image: "child_play1.webp"
     },
      {
       title: 'Personal Attention',
@@ -122,6 +93,7 @@ export default function Home() {
       description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
       features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "child_play1.webp"
     }
   ];
 
@@ -292,92 +264,81 @@ export default function Home() {
       </section>
 
 {/* About Section */}
-      <section id="about" className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="py-20 bg-[#f4f4f4] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
 
-          {/* Heading */}
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">About KM Gurukulam</h2>
-            <br />
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              At KM Gurukulam, we believe that every child’s early steps are the foundation for a lifetime of learning. Designed especially for playgroup toddlers and daycare services, our school provides a warm, nurturing, and joyful environment where little ones grow with confidence and curiosity.
+        {/* Section Heading */}
+        <div className="text-center" data-aos="fade-down" data-aos-duration="1000">
+          <h2 className="text-5xl font-bold text-gray-800 mb-4">About Us</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover our philosophy, mission, and commitment to nurturing early childhood development in a joyful and loving space.
+          </p>
+          <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+        </div>
+
+        {/* Row 1 */}
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center">
+          {/* Image */}
+          <div className="order-1 md:order-1" data-aos="fade-right" data-aos-duration="1200">
+            <img
+              src="child_play.webp"
+              alt="Happy children playing"
+              className="w-full rounded-3xl shadow-xl mb-[29px]"
+            />
+          </div>
+
+          {/* Text */}
+          <div className="order-2 md:order-2" data-aos="fade-left" data-aos-duration="1200">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradColorTwo to-gradColorThree">KM Gurukulam</span>
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              At KM Gurukulam, we believe that every child’s early steps are the foundation for a lifetime of learning.
+              Our school offers a warm, nurturing, and joyful environment where children grow with curiosity, creativity,
+              and confidence.
             </p>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            
-            {/* Features List */}
-            <div className="space-y-8" data-aos="fade-up" data-aos-delay="100">
-              <div className="space-y-6">
-                {/* Feature 1 */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Heart className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Nurturing Environment</h3>
-                    <p className="text-gray-600">We create a safe, loving space where children feel secure to explore, learn, and grow.</p>
-                  </div>
-                </div>
+        {/* Row 2 */}
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center">
+          {/* Image */}
+          <div className="order-3 md:order-2" data-aos="fade-left" data-aos-duration="1200">
+            <img
+              src="child_play.webp"
+              alt="kids having fun"
+              className="w-full rounded-3xl shadow-xl mb-[29px]"
+            />
+          </div>
 
-                {/* Feature 2 */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Holistic Development</h3>
-                    <p className="text-gray-600">Our curriculum focuses on cognitive, emotional, social, and physical development.</p>
-                  </div>
-                </div>
-
-                {/* Feature 3 */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Individual Attention</h3>
-                    <p className="text-gray-600">Small class sizes ensure every child receives personalized care and attention.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Empty Divs - Optional: Can be removed if unused */}
-            <div className="h-full w-full"></div>
-            <div className="h-full w-full"></div>
-
-            {/* Mission Card */}
-            <div className="relative" data-aos="zoom-in" data-aos-delay="200">
-              <div className="bg-gradient-to-r from-orange-200 to-pink-200 rounded-3xl p-8">
-                <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
-                  <p className="text-gray-600 mb-6">
-                    To inspire a love of learning in every child by providing a nurturing, stimulating environment 
-                    that encourages exploration, creativity, and growth.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Palette className="w-8 h-8 text-white" />
-                      </div>
-                      <p className="text-sm text-gray-600">Creative Arts</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Music className="w-8 h-8 text-white" />
-                      </div>
-                      <p className="text-sm text-gray-600">Music & Movement</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          {/* Text */}
+          <div className="order-4 md:order-1" data-aos="fade-right" data-aos-duration="1200">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gradColorThree to-gradColorTwo">Our Mission</span>
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              To inspire a lifelong love of learning by creating a safe and stimulating atmosphere where children feel free
+              to explore, engage, and express themselves.
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <div className="w-4 h-4 bg-gradColorOne rounded-full mr-3"></div>
+                <span className="text-gray-700">Creative Arts</span>
+              </li>
+              <li className="flex items-center">
+                <div className="w-4 h-4 bg-gradColorTwo rounded-full mr-3"></div>
+                <span className="text-gray-700">Music & Movement</span>
+              </li>
+              <li className="flex items-center">
+                <div className="w-4 h-4 bg-gradColorThree rounded-full mr-3"></div>
+                <span className="text-gray-700">Emotional & Social Growth</span>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
 
 
       {/* Programs Section */}
@@ -401,10 +362,21 @@ export default function Home() {
                 data-aos="zoom-in"
                 data-aos-delay={`${index * 100}`}
               >
-                <div className={`${program.color} p-6 text-white`}>
-                  <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
-                  <p className="text-white/90 text-lg">{program.age}</p>
+                {/* Image Section with Overlay and Text */}
+                <div className="relative h-48">
+                  <img
+                    src={program.image}
+                    alt={program.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40"></div> {/* Dark overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-center items-start p-6 z-10">
+                    <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-md">{program.title}</h3>
+                    <p className="text-white/90 text-lg drop-shadow-sm">{program.age}</p>
+                  </div>
                 </div>
+
+                {/* Description Section */}
                 <div className="p-6">
                   <p className="text-gray-600 mb-6">{program.description}</p>
                   <div className="space-y-3">
@@ -422,6 +394,7 @@ export default function Home() {
             ))}
           </div>
 
+
         </div>
       </section>
 
@@ -433,45 +406,39 @@ export default function Home() {
           {/* Heading */}
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Founder</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+
+            <p className="pt-[20px] text-xl text-gray-600 max-w-3xl mx-auto">
               I’m the Director and Principal of Little Orchids Preschool, Royapettah, where I’ve had the joy of shaping early learning experiences for many children. With a heart full of purpose and years of experience, I am proud to begin this new journey with KM Gurukulam — a space where care meets early education.
             </p>
           </div>
 
-          {/* Founder Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {faculty.map((teacher, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
-                data-aos="flip-left"
-                data-aos-delay={`${index * 100}`}
-              >
-                <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{teacher.name}</h3>
-                <p className="text-orange-500 font-semibold mb-2">{teacher.role}</p>
-                <p className="text-gray-600 text-sm mb-2">{teacher.experience}</p>
-                <p className="text-gray-600 text-sm mb-4">{teacher.qualifications}</p>
-                <div className="space-y-1">
-                  {teacher.specialties.map((specialty, specialtyIndex) => (
-                    <span
-                      key={specialtyIndex}
-                      className="inline-block bg-white text-gray-700 px-2 py-1 rounded-full text-xs mr-1 mb-1"
-                      data-aos="zoom-in"
-                      data-aos-delay={`${300 + specialtyIndex * 50}`}
-                    >
-                      {specialty}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          {/* Founder Section */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Founder Image */}
+            <div data-aos="fade-right" data-aos-duration="1200">
+              <img
+                src="images/gallary/img6 (2).png"
+                alt="Founder Image"
+                className="w-full rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Founder Text */}
+            <div data-aos="fade-left" data-aos-duration="1200">
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">Mrs. Nima Radhakrishnan, M.A., B.Ed</h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                With over a decade of experience in early childhood education, our founder has always believed that nurturing a child's curiosity lays the foundation for lifelong learning. Her compassionate leadership, dedication to holistic education, and passion for young learners continue to shape KM Gurukulam into a home of joyful discovery.
+              </p>
+              <p className="text-md text-gray-600">
+                As an educator and mentor, she fosters a loving and structured atmosphere where every child feels seen, heard, and encouraged to shine.
+              </p>
+            </div>
           </div>
 
         </div>
       </section>
+
 
 
       {/*/ Admission Section */}
