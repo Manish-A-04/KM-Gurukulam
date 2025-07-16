@@ -74,5 +74,20 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7"
-  }
+  },
+  "description": "",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manish-A-04/KM-Gurukulam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Manish-A-04/KM-Gurukulam/issues"
+  },
+  "homepage": "https://github.com/Manish-A-04/KM-Gurukulam#readme"
 }
