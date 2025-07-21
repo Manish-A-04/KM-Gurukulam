@@ -25,6 +25,7 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        eventColor:"#F4E7FF",
         heroStart: "#FFF9EC",
         heroEnd: "#FFEAF4",
         gradColorOne : "#bd16e7ff",

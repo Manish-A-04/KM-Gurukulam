@@ -92,3 +92,16 @@
     background-position: 0% 50%;
   }
 }
+
+@keyframes slideX {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-x {
+  animation: slideX 4s linear infinite;
+}

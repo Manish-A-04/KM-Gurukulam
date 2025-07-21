@@ -3,7 +3,6 @@ import React from 'react';
 import { GallerySection } from '@/components/ui/gallery-section'; //gallary
 import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gallary
 import AdmissionForm from '@/components/ui/admissionsform';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -34,7 +33,7 @@ export default function Home() {
   //For AOS library 
   useEffect(() => {
     AOS.init({
-      duration: 800, // default animation duration
+      duration: 600, // default animation duration
       once: true     // animation happens only once per element
     });
   }, []);
@@ -126,6 +125,32 @@ export default function Home() {
       </svg>
     );
     const navLinks = ['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'];
+    const events = [
+      {
+        id: 1,
+        title: "Summer Camp on Personality Development & Public Speaking for Teens in Chennai",
+        organizer: "Action DnA",
+        date: "26 JUL ONWARDS",
+        isFree: true,
+        image: "child_play.webp",
+      },
+      {
+        id: 2,
+        title: "Best Ayurveda Resort, Kerala",
+        organizer: "Somatheeram Resort",
+        date: "Open Dates",
+        isFree: false,
+        image: "child_play.webp",
+      },
+      {
+        id: 3,
+        title: "Entrepreneurship Training in Royapetah & Santhome",
+        organizer: "Action DnA - Mylapore",
+        date: "26 JUL ONWARDS",
+        isFree: true,
+        image: "child_play.webp",
+      },
+    ];
 
 
   
@@ -241,7 +266,7 @@ export default function Home() {
                   Enroll Now
                 </button>
                 <button
-                  onClick={() => scrollToSection('about')}
+                  onClick={() => scrollToSection('events')}
                   className="px-8 py-4 rounded-full text-lg font-semibold border-2 transition-all duration-300"
                   style={{
                     borderColor: '#E54B7F',
@@ -255,7 +280,7 @@ export default function Home() {
                     e.currentTarget.style.backgroundColor = 'transparent';
                     e.currentTarget.style.color = '#E54B7F';
                   }}>
-                  Learn More
+                  Our Memories
                 </button>
               </div>
             </div>
@@ -263,8 +288,75 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Event Section */}
+    <section id="events" className="py-16 bg-gradient-to-b from-[#fde7f4] via-[#f4dcfc] via-40% to-[#dfeeff] to-70% to-[#e8e0ff]">
+
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-5xl font-bold  mb-2">
+            Events
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Explore exciting events and joyful activities happening at KM Gurukulam.
+          </p>
+          <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+
+        </div>
+
+        {/* Card Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {events.map((event, index) => (
+            <div
+              key={event.id}
+              className="bg-white rounded-2xl shadow-xl overflow-hidden border border-pink-100 hover:shadow-2xl transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay={100 * (index + 1)}
+            >
+              <div className="relative">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-48 object-cover"
+                />
+                {/* Optional: light overlay for better text contrast */}
+                <div className="absolute inset-0 bg-black/10"></div>
+              </div>
+              <div className="p-5 space-y-3">
+                <h3 className="text-lg font-semibold text-pink-700 leading-snug">
+                  {event.title}
+                </h3>
+                <p className="text-sm text-gray-500">{event.organizer}</p>
+                <div className="text-sm text-gray-600 flex justify-between pt-2">
+                  <span className="text-gray-700 font-medium">{event.date}</span>
+                  <span
+                    className={`font-semibold ${
+                      event.isFree ? "text-green-600" : "text-red-500"
+                    }`}
+                  >
+                    {event.isFree ? "★ Free" : "● Paid"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-12 flex justify-center" data-aos="fade-up" data-aos-delay="300">
+  <a
+    href="#uevents"
+    className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#fbd4e8] via-[#ebd9fa] to-[#d7e6ff] text-pink-800 font-semibold shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-pink-200"
+  >
+    This Month's Plan
+  </a>
+</div>
+    </section>
+
 {/* About Section */}
-    <section id="about" className="py-20 bg-[#f4f4f4] relative">
+    <section id="about" className="py-20 bg-gradient-to-b from-[#e8e0ff] to-[#dfeeff] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
 
         {/* Section Heading */}
@@ -340,9 +432,8 @@ export default function Home() {
     </section>
 
 
-
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-gradient-to-br from-blue-50 to-purple-50 relative">
+      <section id="programs" className="py-20 bg-gradient-to-b from-[#dfeeff] to-[#FCE4EC] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* Section Heading */}
@@ -351,6 +442,8 @@ export default function Home() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Age-appropriate programs designed to meet the unique developmental needs of each child.
             </p>
+            <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+
           </div>
 
           {/* Programs Grid */}
@@ -400,17 +493,17 @@ export default function Home() {
 
 
       {/* Founder Section */}
-      <section id="founder" className="py-20 bg-white relative">
+      <section id="founder" className="py-20 bg-gradient-to-b from-[#FCE4EC] to-[#FCF8F4] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* Heading */}
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Founder</h2>
-            <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+            <h2 className="text-4xl font-bold text-gray-800 mb-1">Meet Our Founder</h2>
 
             <p className="pt-[20px] text-xl text-gray-600 max-w-3xl mx-auto">
-              I’m the Director and Principal of Little Orchids Preschool, Royapettah, where I’ve had the joy of shaping early learning experiences for many children. With a heart full of purpose and years of experience, I am proud to begin this new journey with KM Gurukulam — a space where care meets early education.
-            </p>
+                Learn about the visionary behind KM Gurukulam — blending years of early education leadership with a deep passion for nurturing young minds.            </p>
+            <div className="w-24 h-1 mt-4 mx-auto bg-gradient-to-r from-gradColorOne via-gradColorTwo to-gradColorThree rounded-full"></div>
+
           </div>
 
           {/* Founder Section */}
@@ -442,7 +535,7 @@ export default function Home() {
 
 
       {/*/ Admission Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="admissions" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
     {/* LEFT SIDE: Important Information */}
     <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
@@ -599,6 +692,87 @@ export default function Home() {
         </div>
       </section>
 
+            {/* Upcoming Events */}
+      <section id="uevents" className="py-16 bg-pink-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+    {/* Holidays Table */}
+    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">📅 Holidays</h2>
+      <table className="min-w-full table-auto text-left text-sm">
+        <thead className="bg-pink-100 text-pink-700">
+          <tr>
+            <th className="px-4 py-2">S.No</th>
+            <th className="px-4 py-2">Date</th>
+            <th className="px-4 py-2">Day</th>
+            <th className="px-4 py-2">Reason</th>
+          </tr>
+        </thead>
+        <tbody className="text-gray-700">
+          <tr className="border-b">
+            <td className="px-4 py-2">1</td>
+            <td className="px-4 py-2">Nov 12, 2025</td>
+            <td className="px-4 py-2">Wednesday</td>
+            <td className="px-4 py-2">Diwali</td>
+          </tr>
+          {/* Add more rows here */}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Timings Table */}
+    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">⏰ Timings</h2>
+      <table className="min-w-full table-auto text-left text-sm">
+        <thead className="bg-pink-100 text-pink-700">
+          <tr>
+            <th className="px-4 py-2">S.No</th>
+            <th className="px-4 py-2">Class</th>
+            <th className="px-4 py-2">Time</th>
+            <th className="px-4 py-2">Days</th>
+          </tr>
+        </thead>
+        <tbody className="text-gray-700">
+          <tr className="border-b">
+            <td className="px-4 py-2">1</td>
+            <td className="px-4 py-2">Bharatanatyam</td>
+            <td className="px-4 py-2">4:00 PM - 5:00 PM</td>
+            <td className="px-4 py-2">Mon, Wed, Fri</td>
+          </tr>
+          {/* Add more rows here */}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Events Table */}
+    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+      <h2 className="text-2xl font-semibold text-pink-600 mb-4">🎉 Upcoming Events</h2>
+      <table className="min-w-full table-auto text-left text-sm">
+        <thead className="bg-pink-100 text-pink-700">
+          <tr>
+            <th className="px-4 py-2">S.No</th>
+            <th className="px-4 py-2">Date</th>
+            <th className="px-4 py-2">Day</th>
+            <th className="px-4 py-2">Event Name</th>
+            <th className="px-4 py-2">Group</th>
+          </tr>
+        </thead>
+        <tbody className="text-gray-700">
+          <tr className="border-b">
+            <td className="px-4 py-2">1</td>
+            <td className="px-4 py-2">Aug 15, 2025</td>
+            <td className="px-4 py-2">Friday</td>
+            <td className="px-4 py-2">Independence Day Celebration</td>
+            <td className="px-4 py-2">All Students</td>
+          </tr>
+          {/* Add more rows here */}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 relative">
         
@@ -606,7 +780,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <img src="/km gurukulam.png" alt="KM Gurukulam" className = "h-[15vh] pr-[4vw]"/>
+                <img src="/km gurukulam.png" alt="KM Gurukulam" className = "md:h-[15vh] md:pr-[4vw] h-[10vh]"/>
               </div>
               <p className="text-gray-300 mb-4">
                 Nurturing young minds and building bright futures. Where every child's journey begins with love, learning, and laughter.
