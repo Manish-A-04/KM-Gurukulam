@@ -124,7 +124,7 @@ export default function Home() {
           <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     );
-    const navLinks = ['Home', 'About', 'Programs', 'Founder', 'Admissions', 'Contact'];
+    const navLinks = ['Home', 'About', 'Programs', 'Founder',  'Contact'];
     const events = [
       {
         id: 1,
@@ -152,6 +152,8 @@ export default function Home() {
       },
     ];
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [step, setStep] = useState(1); // 1: Info, 2: Form
 
   
   
@@ -216,7 +218,6 @@ export default function Home() {
         </nav>
 
       {/* Hero Section */}
-
       <section
         id="home"
         className=" w-[100vw] h-[100vh] pt-[25vh] md:pt-[30vh] overflow-hidden relative bg-hero-animated bg-size-200 animate-hero-bg-move"
@@ -250,8 +251,8 @@ export default function Home() {
                 data-aos-delay="300"
               >
                 Welcome to KM Gurukulam, where every child's journey begins with love,
-                learning, and laughter. We provide a nurturing environment that fosters
-                creativity, curiosity, and confidence.
+                learning, and laughter.<span className='block'> We provide a nurturing environment that fosters
+                creativity, curiosity, and confidence.</span>
               </p>
 
               <div
@@ -260,7 +261,10 @@ export default function Home() {
                 data-aos-delay="500"
               >
                 <button
-                  onClick={() => scrollToSection('admissions')}
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setStep(1);
+                  }}
                   className="text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-10000 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
                 >
                   Enroll Now
@@ -282,6 +286,7 @@ export default function Home() {
                   }}>
                   Our Memories
                 </button>
+
               </div>
             </div>
           </div>
@@ -355,7 +360,7 @@ export default function Home() {
 </div>
     </section>
 
-{/* About Section */}
+      {/* About Section */}
     <section id="about" className="py-20 bg-gradient-to-b from-[#e8e0ff] to-[#dfeeff] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
 
@@ -535,54 +540,80 @@ export default function Home() {
 
 
       {/*/ Admission Section */}
-      <div id="admissions" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-    {/* LEFT SIDE: Important Information */}
-    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
-      <h3 className="text-2xl font-bold text-gray-800 mb-6">Important Information</h3>
-      <div className="space-y-6">
-        <div className="flex items-center space-x-3">
-          <Clock className="w-6 h-6 text-green-500 flex-shrink-0" />
-          <div>
-            <p className="font-semibold text-gray-800">School Hours</p>
-            <p className="text-gray-600 text-sm">Monday - Friday: 8:00 AM - 3:00 PM</p>
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4">
+          <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-xl max-h-[90vh] overflow-y-auto p-6 animate-fadeIn">
+
+            {/* Close Button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-2xl"
+            >
+              &times;
+            </button>
+
+            {/* Step 1: Important Info */}
+            {step === 1 && (
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-800">Important Information</h3>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                      Please review our Program Details to explore individual class timings, curriculum, and available slots.
+We offer a range of programs including Bharatanatyam, Abacus, Music, Art & Craft, and more.
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-formTwo to-formOne rounded-xl p-4">
+                  <p className="font-semibold text-sm text-gray-700 mb-2">Required Documents:</p>
+                  <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Birth Certificate</li>
+                    <li>Immunization Records</li>
+                    <li>Medical History Form</li>
+                    <li>Emergency Contact Information</li>
+                  </ul>
+                </div>
+
+                <div className="text-right">
+                  <button
+                    onClick={() => setStep(2)}
+                    className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Step 2: Admission Form */}
+            {step === 2 && (
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-800">Admission Form</h3>
+
+                <div className="px-1">
+                  <AdmissionForm />
+                </div>
+
+                <div className="flex justify-between">
+                  <button
+                    onClick={() => setStep(1)}
+                    className="text-green-600 hover:underline"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-        <div className="flex items-center space-x-3">
-          <Users className="w-6 h-6 text-green-500 flex-shrink-0" />
-          <div>
-            <p className="font-semibold text-gray-800">Age Groups</p>
-            <p className="text-gray-600 text-sm">2-5 years (Toddlers to Pre-K)</p>
-          </div>
-        </div>
-        <div className="flex items-center space-x-3">
-          <Award className="w-6 h-6 text-green-500 flex-shrink-0" />
-          <div>
-            <p className="font-semibold text-gray-800">Class Size</p>
-            <p className="text-gray-600 text-sm">Maximum 12 children per class</p>
-          </div>
-        </div>
-        <div className="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-4">
-          <p className="text-gray-700 text-sm mb-2">
-            <strong>Required Documents:</strong>
-          </p>
-          <ul className="text-gray-600 text-sm space-y-1">
-            <li>• Birth Certificate</li>
-            <li>• Immunization Records</li>
-            <li>• Medical History Form</li>
-            <li>• Emergency Contact Information</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    {/* RIGHT SIDE: Admission Form */}
-    <div className="flex-1 bg-white rounded-3xl p-6 sm:p-8 shadow-lg">
-      <h3 className="text-2xl font-bold text-gray-800 mb-6">Admission Form</h3>
-      <AdmissionForm />
-    </div>
-  </div>
-      </div>
+      )}
+
 
       {/* Gallery Section (Replaces Testimonials) */}
       
@@ -692,85 +723,85 @@ export default function Home() {
         </div>
       </section>
 
-            {/* Upcoming Events */}
+      {/* Upcoming Events */}
       <section id="uevents" className="py-16 bg-pink-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-    {/* Holidays Table */}
-    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
-      <h2 className="text-2xl font-semibold text-pink-600 mb-4">📅 Holidays</h2>
-      <table className="min-w-full table-auto text-left text-sm">
-        <thead className="bg-pink-100 text-pink-700">
-          <tr>
-            <th className="px-4 py-2">S.No</th>
-            <th className="px-4 py-2">Date</th>
-            <th className="px-4 py-2">Day</th>
-            <th className="px-4 py-2">Reason</th>
-          </tr>
-        </thead>
-        <tbody className="text-gray-700">
-          <tr className="border-b">
-            <td className="px-4 py-2">1</td>
-            <td className="px-4 py-2">Nov 12, 2025</td>
-            <td className="px-4 py-2">Wednesday</td>
-            <td className="px-4 py-2">Diwali</td>
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-    </div>
+          {/* Holidays Table */}
+          <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+            <h2 className="text-2xl font-semibold text-pink-600 mb-4">📅 Holidays</h2>
+            <table className="min-w-full table-auto text-left text-sm">
+              <thead className="bg-pink-100 text-pink-700">
+                <tr>
+                  <th className="px-4 py-2">S.No</th>
+                  <th className="px-4 py-2">Date</th>
+                  <th className="px-4 py-2">Day</th>
+                  <th className="px-4 py-2">Reason</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                <tr className="border-b">
+                  <td className="px-4 py-2">1</td>
+                  <td className="px-4 py-2">Nov 12, 2025</td>
+                  <td className="px-4 py-2">Wednesday</td>
+                  <td className="px-4 py-2">Diwali</td>
+                </tr>
+                {/* Add more rows here */}
+              </tbody>
+            </table>
+          </div>
 
-    {/* Timings Table */}
-    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
-      <h2 className="text-2xl font-semibold text-pink-600 mb-4">⏰ Timings</h2>
-      <table className="min-w-full table-auto text-left text-sm">
-        <thead className="bg-pink-100 text-pink-700">
-          <tr>
-            <th className="px-4 py-2">S.No</th>
-            <th className="px-4 py-2">Class</th>
-            <th className="px-4 py-2">Time</th>
-            <th className="px-4 py-2">Days</th>
-          </tr>
-        </thead>
-        <tbody className="text-gray-700">
-          <tr className="border-b">
-            <td className="px-4 py-2">1</td>
-            <td className="px-4 py-2">Bharatanatyam</td>
-            <td className="px-4 py-2">4:00 PM - 5:00 PM</td>
-            <td className="px-4 py-2">Mon, Wed, Fri</td>
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-    </div>
+          {/* Timings Table */}
+          <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+            <h2 className="text-2xl font-semibold text-pink-600 mb-4">⏰ Timings</h2>
+            <table className="min-w-full table-auto text-left text-sm">
+              <thead className="bg-pink-100 text-pink-700">
+                <tr>
+                  <th className="px-4 py-2">S.No</th>
+                  <th className="px-4 py-2">Class</th>
+                  <th className="px-4 py-2">Time</th>
+                  <th className="px-4 py-2">Days</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                <tr className="border-b">
+                  <td className="px-4 py-2">1</td>
+                  <td className="px-4 py-2">Bharatanatyam</td>
+                  <td className="px-4 py-2">4:00 PM - 5:00 PM</td>
+                  <td className="px-4 py-2">Mon, Wed, Fri</td>
+                </tr>
+                {/* Add more rows here */}
+              </tbody>
+            </table>
+          </div>
 
-    {/* Events Table */}
-    <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
-      <h2 className="text-2xl font-semibold text-pink-600 mb-4">🎉 Upcoming Events</h2>
-      <table className="min-w-full table-auto text-left text-sm">
-        <thead className="bg-pink-100 text-pink-700">
-          <tr>
-            <th className="px-4 py-2">S.No</th>
-            <th className="px-4 py-2">Date</th>
-            <th className="px-4 py-2">Day</th>
-            <th className="px-4 py-2">Event Name</th>
-            <th className="px-4 py-2">Group</th>
-          </tr>
-        </thead>
-        <tbody className="text-gray-700">
-          <tr className="border-b">
-            <td className="px-4 py-2">1</td>
-            <td className="px-4 py-2">Aug 15, 2025</td>
-            <td className="px-4 py-2">Friday</td>
-            <td className="px-4 py-2">Independence Day Celebration</td>
-            <td className="px-4 py-2">All Students</td>
-          </tr>
-          {/* Add more rows here */}
-        </tbody>
-      </table>
-    </div>
+          {/* Events Table */}
+          <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
+            <h2 className="text-2xl font-semibold text-pink-600 mb-4">🎉 Upcoming Events</h2>
+            <table className="min-w-full table-auto text-left text-sm">
+              <thead className="bg-pink-100 text-pink-700">
+                <tr>
+                  <th className="px-4 py-2">S.No</th>
+                  <th className="px-4 py-2">Date</th>
+                  <th className="px-4 py-2">Day</th>
+                  <th className="px-4 py-2">Event Name</th>
+                  <th className="px-4 py-2">Group</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                <tr className="border-b">
+                  <td className="px-4 py-2">1</td>
+                  <td className="px-4 py-2">Aug 15, 2025</td>
+                  <td className="px-4 py-2">Friday</td>
+                  <td className="px-4 py-2">Independence Day Celebration</td>
+                  <td className="px-4 py-2">All Students</td>
+                </tr>
+                {/* Add more rows here */}
+              </tbody>
+            </table>
+          </div>
 
-  </div>
+        </div>
       </section>
 
       {/* Footer */}
