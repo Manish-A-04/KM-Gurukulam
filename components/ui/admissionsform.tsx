@@ -10,7 +10,14 @@ const programs = [
   "Playgroup Program (1.5 – 3.5 yrs)",
   "Daycare Services",
   "Pre-K Program",
-  "Toddler Learning Program"
+  "Tution pre-kg - 12th",
+  "Bharathanatyam",
+  "Abacus",
+  "Carnatic Music",
+  "Yoga",
+  "Karate",
+  "Phonics"
+  
 ]
 
 export default function AdmissionForm() {

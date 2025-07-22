@@ -64,11 +64,11 @@ export default function Home() {
   const programs = [
     {
       title: 'Playgroup Program',
-      age: '1.5 - 3.5 years',
+      age: '2 - 3 years',
       description: 'Gentle introduction to learning through play, music, movement, and storytelling.',
       features: ['Sensory Exploration', 'Social Interaction', 'Creative Arts'],
       color: 'bg-gradient-to-br from-orange-400 to-pink-500',
-      image: "child_play1.webp"
+      image: "../images/programs/20250605-IMG_3899.jpg"
     },
     {
       title: 'Daycare Services',
@@ -76,24 +76,75 @@ export default function Home() {
       description: 'Safe, engaging care for children throughout the day with age-appropriate routines, naps, and fun.',
       features: ['Structured Routine', 'Nutritious Meals', 'Play-based Learning'],
       color: 'bg-gradient-to-br from-blue-400 to-purple-500',
-      image: "child_play1.webp"
+      image: "../images/programs/20250605-IMG_4010.jpg"
     },
     {
-      title: 'Clean & Safe Environment',
-      age: 'Our Priority',
-      description: 'Child-friendly spaces with caring staff and regular hygiene practices to ensure a healthy setting.',
+      title: 'PRE-KG',
+      age: '3 - 4 years',
+      description: 'Nurturing Bright Beginnings: Our Pre-KG School fosters a joyful, caring environment where young minds blossom through playful learning and strong educational foundations.',
       features: ['Regular Sanitization', 'Secure Premises', 'Caring Staff'],
       color: 'bg-gradient-to-br from-green-400 to-teal-500',
-      image: "child_play1.webp"
+      image: "../images/programs/class.jpeg"
     },
      {
-      title: 'Personal Attention',
+      title: 'Barathanatyam',
       age: 'Individual Focus',
       description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
       features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
-      image: "child_play1.webp"
-    }
+      image: "../images/programs/download.jpeg"
+    },
+
+    {
+      title: 'Abacus Class',
+      age: 'Individual Focus',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/abacus.jpeg"
+    },
+    {
+      title: 'Carnatic Music',
+      age: 'Individual Focus',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/download (1).jpeg"
+    },
+    {
+      title: 'Carnatic Music',
+      age: 'Individual Focus',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/Sunset Meditation Bliss.jpeg"
+    },
+    {
+      title: 'Tution Classes',
+      age: 'Pre-KG - 12th',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/tutuion.jpeg"
+    },
+  {
+      title: 'Karate Classes',
+      age: 'Pre-KG - 12th',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/karate.jpeg"
+    },
+
+    {
+      title: 'Phonics Classes',
+      age: 'Pre-KG - 12th',
+      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
+      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
+      image: "../images/programs/CVC Word Wheel.jpeg"
+    },
+
   ];
 
   const faculty = [
@@ -128,28 +179,14 @@ export default function Home() {
     const events = [
       {
         id: 1,
-        title: "Summer Camp on Personality Development & Public Speaking for Teens in Chennai",
-        organizer: "Action DnA",
-        date: "26 JUL ONWARDS",
+        title: "Successful Inauguration of KM Gurukulam Marks a Promising Beginnin",
+        organizer: "",
+        date: "04 JUL 2025 ",
         isFree: true,
-        image: "child_play.webp",
+        image: "../images/gallary/img6 (6).png",
       },
-      {
-        id: 2,
-        title: "Best Ayurveda Resort, Kerala",
-        organizer: "Somatheeram Resort",
-        date: "Open Dates",
-        isFree: false,
-        image: "child_play.webp",
-      },
-      {
-        id: 3,
-        title: "Entrepreneurship Training in Royapetah & Santhome",
-        organizer: "Action DnA - Mylapore",
-        date: "26 JUL ONWARDS",
-        isFree: true,
-        image: "child_play.webp",
-      },
+      
+      
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -295,7 +332,7 @@ export default function Home() {
 
 
       {/* Event Section */}
-    <section id="events" className="py-16 bg-gradient-to-b from-[#fde7f4] via-[#f4dcfc] via-40% to-[#dfeeff] to-70% to-[#e8e0ff]">
+    <section id="events" className="py-16 bg-gradient-to-b from-[#fde7f4] via-[#f4dcfc] via-40% to-[#dfeeff]">
 
 
 
@@ -342,7 +379,7 @@ export default function Home() {
                       event.isFree ? "text-green-600" : "text-red-500"
                     }`}
                   >
-                    {event.isFree ? "★ Free" : "● Paid"}
+                    {event.isFree ? " " : ""}
                   </span>
                 </div>
               </div>
@@ -378,7 +415,7 @@ export default function Home() {
           {/* Image */}
           <div className="order-1 md:order-1" data-aos="fade-right" data-aos-duration="1200">
             <img
-              src="child_play.webp"
+              src="../images/gallary/img6 (2).png"
               alt="Happy children playing"
               className="w-full rounded-3xl shadow-xl mb-[29px]"
             />
@@ -402,7 +439,7 @@ export default function Home() {
           {/* Image */}
           <div className="order-3 md:order-2" data-aos="fade-left" data-aos-duration="1200">
             <img
-              src="child_play.webp"
+              src="../images/programs/20250605-IMG_3990.jpg"
               alt="kids having fun"
               className="w-full rounded-3xl shadow-xl mb-[29px]"
             />
@@ -524,7 +561,7 @@ export default function Home() {
 
             {/* Founder Text */}
             <div data-aos="fade-left" data-aos-duration="1200">
-              <h3 className="text-3xl font-bold text-gray-800 mb-4">Mrs. Nima Radhakrishnan, M.A., B.Ed</h3>
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">Mrs. Nima Radhakrishnan, M.A., MTT, DYT</h3>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 With over a decade of experience in early childhood education, our founder has always believed that nurturing a child's curiosity lays the foundation for lifelong learning. Her compassionate leadership, dedication to holistic education, and passion for young learners continue to shape KM Gurukulam into a home of joyful discovery.
               </p>
