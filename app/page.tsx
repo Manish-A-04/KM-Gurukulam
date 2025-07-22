@@ -595,9 +595,10 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-gray-800">Important Information</h3>
 
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                      Please review our Program Details to explore individual class timings, curriculum, and available slots.
-We offer a range of programs including Bharatanatyam, Abacus, Music, Art & Craft, and more.
+                  <div className="flex flex-col items-start gap-3">
+                      <span> Please review our Program Details to explore individual class timings, curriculum, and available slots.
+                    We offer a range of programs including Bharatanatyam, Abacus, Music, Art & Craft, and more.</span>
+                    <span>Our Programs : <a href="#programs" onClick={()=> setIsModalOpen(false)}>Click Here</a></span>
                   </div>
                 </div>
 
@@ -738,7 +739,7 @@ We offer a range of programs including Bharatanatyam, Abacus, Music, Art & Craft
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Hours</p>
-                    <p className="text-gray-600">Mon-Fri: 8:00 AM - 3:00 PM</p>
+                    <p className="text-gray-600">Monday – Saturday : 8:30 AM – 7:00 PM</p>
                   </div>
                 </div>
               </div>
