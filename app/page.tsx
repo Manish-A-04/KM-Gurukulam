@@ -64,33 +64,38 @@ export default function Home() {
   const programs = [
     {
       title: 'Playgroup Program',
-      age: '2 - 3 years',
-      description: 'Gentle introduction to learning through play, music, movement, and storytelling.',
-      features: ['Sensory Exploration', 'Social Interaction', 'Creative Arts'],
+      age: 'For Ages: 2 – 3 years',
+      description: 'Fun learning through play, stories, and social interaction.',
+      features: ['Working Days: Monday – Friday',
+'Timing: 9:30 AM – 12:00 PM'],
       color: 'bg-gradient-to-br from-orange-400 to-pink-500',
       image: "../images/programs/20250605-IMG_3899.jpg"
     },
     {
       title: 'Daycare Services',
       age: 'Full-Day Care',
-      description: 'Safe, engaging care for children throughout the day with age-appropriate routines, naps, and fun.',
-      features: ['Structured Routine', 'Nutritious Meals', 'Play-based Learning'],
+      description: 'Full‑day care with meals, naps & fun learning.',
+      features: ['Working Days: Monday – Saturday',
+'Timing: 8:30 AM – 7:00 PM'],
       color: 'bg-gradient-to-br from-blue-400 to-purple-500',
       image: "../images/programs/20250605-IMG_4010.jpg"
     },
     {
       title: 'PRE-KG',
       age: '3 - 4 years',
-      description: 'Nurturing Bright Beginnings: Our Pre-KG School fosters a joyful, caring environment where young minds blossom through playful learning and strong educational foundations.',
-      features: ['Regular Sanitization', 'Secure Premises', 'Caring Staff'],
+      description: 'Early literacy & numeracy prep through play.',
+      features: ['Working Days: Monday – Friday',
+'Timing: 9:30 AM – 12:30 PM'],
       color: 'bg-gradient-to-br from-green-400 to-teal-500',
       image: "../images/programs/class.jpeg"
     },
      {
       title: 'Barathanatyam',
       age: 'Individual Focus',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Classical dance for grace, rhythm & confidence.',
+      features: ['Days: Mon, Wed, Fri',
+'Timing: 5:30 PM – 6:30 PM',
+'Weekend: Sat 6:00 PM – 7:00 PM, Sun 9:30 AM – 10:30 AM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/download.jpeg"
     },
@@ -98,40 +103,44 @@ export default function Home() {
     {
       title: 'Abacus Class',
       age: 'Individual Focus',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Hands‑on abacus training to boost mental math.',
+      features: ['Days: Saturday, Sunday',
+'Timing: Sat 7:00 PM – 8:00 PM, Sun 8:00 AM – 9:00 AM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/abacus.jpeg"
     },
     {
       title: 'Carnatic Music',
       age: 'Individual Focus',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Vocal & instrumental foundation (schedule TBD).',
+      features: ['Schedule: To be decided – please enquire'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/download (1).jpeg"
     },
     {
-      title: 'Carnatic Music',
+      title: 'Yoga',
       age: 'Individual Focus',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'YMind‑body wellness for focus & flexibility.',
+      features: ['Days: Mon, Wed, Fri',
+'Timing: 4:00 PM – 5:00 PM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/Sunset Meditation Bliss.jpeg"
     },
     {
       title: 'Tution Classes',
       age: 'Pre-KG - 12th',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Personalized academic support across subjects.',
+      features: ['Working Days: Monday – Friday',
+'Timing: 5:00 PM – 7:30 PM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/tutuion.jpeg"
     },
   {
       title: 'Karate Classes',
       age: 'Pre-KG - 12th',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Self‑defense & discipline through martial arts.',
+      features: ['Days: Tue & Thu',
+'Timing: 6:15 PM – 7:15 PM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/karate.jpeg"
     },
@@ -139,8 +148,9 @@ export default function Home() {
     {
       title: 'Phonics Classes',
       age: 'Pre-KG - 12th',
-      description: 'Low student-teacher ratio to ensure every child receives individual care and guidance.',
-      features: ['Small Group Sizes', 'Personalized Learning', 'Strong Teacher-Child Bonds'],
+      description: 'Foundational reading skills via fun phonics.',
+      features: ['Working Days: Monday – Friday',
+'Timing: 5:00 PM – 6:00 PM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
       image: "../images/programs/CVC Word Wheel.jpeg"
     },
@@ -256,9 +266,10 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        id="home"
-        className=" w-[100vw] h-[100vh] pt-[25vh] md:pt-[30vh] overflow-hidden relative bg-hero-animated bg-size-200 animate-hero-bg-move"
-      >
+  id="home"
+  className="min-h-screen px-4 pt-[15vh] md:pt-[30vh] overflow-x-hidden relative bg-hero-animated bg-size-200 animate-hero-bg-move"
+>
+      
         <img
           src="lotus-butterfly.png"
           alt="Lotus and Butterfly"
@@ -293,16 +304,18 @@ export default function Home() {
               </p>
 
               <div
-                className="flex flex-col sm:flex-row gap-4"
-                data-aos="zoom-in"
-                data-aos-delay="500"
+                className="flex flex-col sm:flex-row gap-4 items-start justify-start"
+  data-aos="zoom-in"
+  data-aos-delay="500"
+
+
               >
                 <button
                   onClick={() => {
                     setIsModalOpen(true);
                     setStep(1);
                   }}
-                  className="text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-10000 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
+                  className="text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg rounded-full font-semibold transition-all duration-10000 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
                 >
                   Enroll Now
                 </button>
@@ -553,9 +566,10 @@ export default function Home() {
             {/* Founder Image */}
             <div data-aos="fade-right" data-aos-duration="1200">
               <img
-                src="images/gallary/img6 (2).png"
+                src="../images/gallary/founder_nima.JPG"
                 alt="Founder Image"
-                className="w-full rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-500"
+                className="w-full rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-500 "
+
               />
             </div>
 
@@ -729,7 +743,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Address</p>
-                    <p className="text-gray-600">No. 11/1 Ganapathy Colony, Gopalapuram, Chennai</p>
+                    <p className="text-gray-600">No. 11/1/1 Ganapathy Colony, Gopalapuram, Chennai</p>
                   </div>
                 </div>
                 
@@ -748,7 +762,7 @@ export default function Home() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
               <iframe
                 title="Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d660.6179872959796!2d80.25718654576718!3d13.045901504012328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526639b68e001f%3A0xdaf1bc1db90c2383!2s1%2F1%2C%20Gopalapuram%201st%20St%2C%20Pudupet%2C%20Gopalapuram%2C%20Chennai%2C%20Tamil%20Nadu%20600086!5e0!3m2!1sen!2sin!4v1751697380526!5m2!1sen!2sin"  // Replace with your actual map URL
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7568175054553!2d80.25781687466655!3d13.051145287271593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52663bda079eff%3A0xfe08fdf11bc4d0bd!2s11%2C%20Ganapathy%20Colony%201st%20St%2C%20Ganapathy%20Colony%2C%20Royapettah%2C%20Chennai%2C%20Tamil%20Nadu%20600014!5e0!3m2!1sen!2sin!4v1753369023728!5m2!1sen!2sin" 
                 width="100%"
                 height="100%"
                 className="w-full h-[450px] border-0"
@@ -780,39 +794,28 @@ export default function Home() {
               <tbody className="text-gray-700">
                 <tr className="border-b">
                   <td className="px-4 py-2">1</td>
-                  <td className="px-4 py-2">Nov 12, 2025</td>
-                  <td className="px-4 py-2">Wednesday</td>
-                  <td className="px-4 py-2">Diwali</td>
+                  <td className="px-4 py-2">15 August 2025</td>
+                  <td className="px-4 py-2">Friday</td>
+                  <td className="px-4 py-2">Independence Day</td>
                 </tr>
-                {/* Add more rows here */}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Timings Table */}
-          <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
-            <h2 className="text-2xl font-semibold text-pink-600 mb-4">⏰ Timings</h2>
-            <table className="min-w-full table-auto text-left text-sm">
-              <thead className="bg-pink-100 text-pink-700">
-                <tr>
-                  <th className="px-4 py-2">S.No</th>
-                  <th className="px-4 py-2">Class</th>
-                  <th className="px-4 py-2">Time</th>
-                  <th className="px-4 py-2">Days</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-700">
                 <tr className="border-b">
-                  <td className="px-4 py-2">1</td>
-                  <td className="px-4 py-2">Bharatanatyam</td>
-                  <td className="px-4 py-2">4:00 PM - 5:00 PM</td>
-                  <td className="px-4 py-2">Mon, Wed, Fri</td>
+                  <td className="px-4 py-2">2</td>
+                  <td className="px-4 py-2">16 August 2025</td>
+                  <td className="px-4 py-2">Saturday</td>
+                  <td className="px-4 py-2">Janmashtami</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="px-4 py-2">2</td>
+                  <td className="px-4 py-2">27 August 2025</td>
+                  <td className="px-4 py-2">Wednesday</td>
+                  <td className="px-4 py-2">Ganesh Chaturthi</td>
                 </tr>
                 {/* Add more rows here */}
               </tbody>
             </table>
           </div>
 
+          
           {/* Events Table */}
           <div className="bg-white rounded-2xl shadow-md p-6 overflow-x-auto">
             <h2 className="text-2xl font-semibold text-pink-600 mb-4">🎉 Upcoming Events</h2>
@@ -829,9 +832,30 @@ export default function Home() {
               <tbody className="text-gray-700">
                 <tr className="border-b">
                   <td className="px-4 py-2">1</td>
-                  <td className="px-4 py-2">Aug 15, 2025</td>
+                  <td className="px-4 py-2">14 August 2025</td>
+                  <td className="px-4 py-2">Thursday</td>
+                  <td className="px-4 py-2">Janmashtami  Celebration</td>
+                  <td className="px-4 py-2">All Students</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="px-4 py-2">2</td>
+                  <td className="px-4 py-2">15 August, 2025</td>
                   <td className="px-4 py-2">Friday</td>
                   <td className="px-4 py-2">Independence Day Celebration</td>
+                  <td className="px-4 py-2">All Students</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="px-4 py-2">3</td>
+                  <td className="px-4 py-2">22 August, 2025</td>
+                  <td className="px-4 py-2">Friday</td>
+                  <td className="px-4 py-2">Yellow Day Celebration</td>
+                  <td className="px-4 py-2">All Students</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="px-4 py-2">4</td>
+                  <td className="px-4 py-2">26 August, 2025</td>
+                  <td className="px-4 py-2">Tuesday</td>
+                  <td className="px-4 py-2">Ganesh Chaturthi Celebration</td>
                   <td className="px-4 py-2">All Students</td>
                 </tr>
                 {/* Add more rows here */}
