@@ -330,7 +330,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Event Section */}
     <section id="events" className="py-16 bg-gradient-to-b from-[#fde7f4] via-[#f4dcfc] via-40% to-[#dfeeff]">
 
@@ -574,8 +573,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
       {/*/ Admission Section */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4">
@@ -652,9 +649,7 @@ export default function Home() {
         </div>
       )}
 
-
-      {/* Gallery Section (Replaces Testimonials) */}
-      
+      {/* Gallery Section (Replaces Testimonials) */}  
        <GallerySection
         title="Our Gallery"
         subtitle="A glimpse into the vibrant and joyful learning environment at KM Gurukulam. See our little learners in action!"
