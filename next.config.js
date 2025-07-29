@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+   basePath: '/KM-Gurukulam',
+   assetPrefix: '/KM-Gurukulam',
+   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
