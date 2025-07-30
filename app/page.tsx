@@ -731,7 +731,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Email</p>
-                    <p className="text-gray-600">kmgurukulam@gmail.com</p>
+                    <p className="text-gray-600">kmgurukulam1111@gmail.com</p>
                   </div>
                 </div>
                 
@@ -912,7 +912,7 @@ export default function Home() {
                 <p>1st Street, Gopalapuram</p>
                 <p>Chennai</p>
                 <p>+91 77083 54400</p>
-                <p>kmgurukulam@gmail.com</p>
+                <p>kmgurukulam1111@gmail.com</p>
               </div>
             </div>
           </div>
