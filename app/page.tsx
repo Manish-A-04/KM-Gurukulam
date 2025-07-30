@@ -83,7 +83,7 @@ export default function Home() {
     {
       title: 'PRE-KG',
       age: '3 - 4 years',
-      description: 'Early literacy & numeracy prep through play.',
+      description: 'Early literacy & numeracy preperation through play.',
       features: ['Working Days: Monday – Friday',
 'Timing: 9:30 AM – 12:30 PM'],
       color: 'bg-gradient-to-br from-green-400 to-teal-500',
@@ -97,7 +97,7 @@ export default function Home() {
 'Timing: 5:30 PM – 6:30 PM',
 'Weekend: Sat 6:00 PM – 7:00 PM, Sun 9:30 AM – 10:30 AM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
-      image: "../images/programs/download.jpeg"
+      image: "../images/programs/download (1).jpeg"
     },
 
     {
@@ -115,7 +115,7 @@ export default function Home() {
       description: 'Vocal & instrumental foundation (schedule TBD).',
       features: ['Schedule: To be decided – please enquire'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
-      image: "../images/programs/download (1).jpeg"
+      image: "../images/programs/carnatic.jpeg"
     },
     {
       title: 'Yoga',
@@ -189,7 +189,7 @@ export default function Home() {
     const events = [
       {
         id: 1,
-        title: "Successful Inauguration of KM Gurukulam Marks a Promising Beginnin",
+        title: "Successful Inauguration of KM Gurukulam Marks a Promising Beginning",
         organizer: "",
         date: "04 JUL 2025 ",
         isFree: true,
