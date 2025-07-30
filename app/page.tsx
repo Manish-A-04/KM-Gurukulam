@@ -31,14 +31,30 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+   const [showPopup, setShowPopup] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [step, setStep] = useState(1); // 1: Info, 2: Form
 
   //For AOS library 
   useEffect(() => {
+    setShowPopup(true);
     AOS.init({
       duration: 600, // default animation duration
       once: true     // animation happens only once per element
     });
   }, []);
+
+   const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).id === 'popup-overlay') {
+      setShowPopup(false);
+    }
+  };
+
+   const handlePosterClick = () => {
+    setIsModalOpen(true);
+    setStep(1);
+    setShowPopup(false); // Optionally hide the popup too
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -201,8 +217,7 @@ export default function Home() {
       
     ];
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [step, setStep] = useState(1); // 1: Info, 2: Form
+    // const [isModalOpen, setIsModalOpen] = useState(false); // Removed duplicate
 
   
 
@@ -318,7 +333,7 @@ export default function Home() {
                     setIsModalOpen(true);
                     setStep(1);
                   }}
-                  className="text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg rounded-full font-semibold transition-all duration-10000 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
+                  className="text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg rounded-full font-semibold transition-all duration-200 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
                 >
                   Enroll Now
                 </button>
@@ -345,6 +360,51 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {showPopup && (
+        <div
+          id="popup-overlay"
+          onClick={handleOutsideClick}
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+        >
+          <div className="relative w-[90%] max-w-md">
+            <div
+              onClick={handlePosterClick}
+              className="cursor-pointer transition-transform duration-300 hover:scale-105"
+            >
+              <img
+                src="../poster1.jpg"
+                alt="Event Poster"
+                className="rounded-xl shadow-2xl w-full h-auto"
+              />
+            </div>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute -top-4 -right-4 bg-white text-black rounded-full w-10 h-10 shadow-md text-2xl flex items-center justify-center hover:bg-red-500 hover:text-white transition"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal (simplified visual for now) */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex justify-center items-center">
+          <div className="bg-white rounded-xl p-8 shadow-2xl max-w-xl w-full text-center">
+            <h2 className="text-2xl font-bold mb-4">Admission Form - Step {step}</h2>
+            {/* Your actual modal content based on `step` */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="mt-4 px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-700"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Event Section */}
     <section id="events" className="py-16 bg-gradient-to-b from-[#fde7f4] via-[#f4dcfc] via-40% to-[#dfeeff]">
