@@ -5,6 +5,8 @@ import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gall
 import AdmissionForm from '@/components/ui/admissionsform';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
+
+
 import 'aos/dist/aos.css';
 import { 
   Menu, 
@@ -203,6 +205,7 @@ export default function Home() {
     const [step, setStep] = useState(1); // 1: Info, 2: Form
 
   
+
   
 
   return (
