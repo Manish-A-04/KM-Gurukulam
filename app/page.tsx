@@ -191,7 +191,7 @@ export default function Home() {
         id: 1,
         title: "Successful Inauguration of KM Gurukulam Marks a Promising Beginning",
         organizer: "",
-        date: "04 JUL 2025 ",
+        date: "02 JUL 2025 ",
         isFree: true,
         image: "../images/gallary/img6 (6).png",
       },
