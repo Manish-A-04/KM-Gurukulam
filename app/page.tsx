@@ -138,7 +138,7 @@ export default function Home() {
     {
       title: 'Yoga',
       age: 'Individual Focus',
-      description: 'YMind‑body wellness for focus & flexibility.',
+      description: 'Body wellness for focus & flexibility.',
       features: ['Days: Mon, Wed, Fri',
 'Timing: 4:00 PM – 5:00 PM'],
       color: 'bg-gradient-to-br from-yellow-400 to-orange-500',
