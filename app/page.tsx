@@ -373,7 +373,7 @@ export default function Home() {
               className="cursor-pointer transition-transform duration-300 hover:scale-105"
             >
               <img
-                src="../poster1.jpg"
+                src="..\images\pop.png"
                 alt="Event Poster"
                 className="rounded-xl shadow-2xl w-full h-auto"
               />
