@@ -5,6 +5,8 @@ import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gall
 import AdmissionForm from '@/components/ui/admissionsform';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
+import AdmissionsInfo from '@/components/ui/admissioninfo';
+
 
 
 import 'aos/dist/aos.css';
@@ -287,80 +289,45 @@ export default function Home() {
   id="home"
   className="min-h-screen px-4 pt-[15vh] md:pt-[30vh] overflow-x-hidden relative bg-hero-animated bg-size-200 animate-hero-bg-move"
 >
-      
-        <img
-          src="lotus-butterfly.png"
-          alt="Lotus and Butterfly"
-          className="absolute right-0 hidden sm:block bottom-0 w-[420px] max-w-[60vw] !opacity-20 pointer-events-none select-none animate-float z-0 blur-[0.5px]"
-          data-aos="zoom-out"
-          data-aos-duration="1500"
-        />
+  <img
+    src="lotus-butterfly.png"
+    alt="Lotus and Butterfly"
+    className="absolute right-0 hidden sm:block bottom-0 w-[420px] max-w-[60vw] !opacity-20 pointer-events-none select-none animate-float z-0 blur-[0.5px]"
+  />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-1 gap-12 items-center">
-            <div className="space-y-8">
-              <h1
-                className="text-6xl md:text-6xl font-bold text-gray-800 leading-tight"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                Little{' '}
-                <span className="text-transparent bg-clip-text color-black bg-gradient-animated bg-size-200 animate-bg-move">
-                  Ones
-                </span>{' '}
-                Stepping Stones
-              </h1>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-              <p
-                className="text-xl text-gray-600 leading-relaxed"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                Welcome to KM Gurukulam, where every child's journey begins with love,
-                learning, and laughter.<span className='block'> We provide a nurturing environment that fosters
-                creativity, curiosity, and confidence.</span>
-              </p>
+      {/* LEFT SIDE */}
+      <div className="space-y-6">
+        <h1 className="text-6xl md:text-6xl font-bold text-gray-800 leading-tight">
+          Little{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-animated bg-size-200 animate-bg-move">
+            Ones
+          </span>{' '}
+          Stepping Stones
+        </h1>
 
-              <div
-                className="flex flex-col sm:flex-row gap-4 items-start justify-start"
-  data-aos="zoom-in"
-  data-aos-delay="500"
+        <p className="text-xl text-gray-600 leading-relaxed">
+          Welcome to <strong>KM Gurukulam</strong>, where every child’s journey
+          begins with love, learning, and laughter.
+          <span className="block mt-2">
+            We provide a nurturing environment that fosters creativity,
+            curiosity, and confidence.
+          </span>
+        </p>
+      </div>
 
+      {/* RIGHT SIDE */}
+      <div className="w-full">
+        <AdmissionsInfo />
+      </div>
 
-              >
-                <button
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    setStep(1);
-                  }}
-                  className="text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg rounded-full font-semibold transition-all duration-200 hover:scale-105 shadow-md bg-gradient-animated bg-size-200 animate-bg-move"
-                >
-                  Enroll Now
-                </button>
-                <button
-                  onClick={() => scrollToSection('events')}
-                  className="px-8 py-4 rounded-full text-lg font-semibold border-2 transition-all duration-300"
-                  style={{
-                    borderColor: '#E54B7F',
-                    color: '#E54B7F',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#E54B7F';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#E54B7F';
-                  }}>
-                  Our Memories
-                </button>
+    </div>
+  </div>
+</section>
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    {/*
       {showPopup && (
         <div
           id="popup-overlay"
@@ -373,8 +340,8 @@ export default function Home() {
               className="cursor-pointer transition-transform duration-300 hover:scale-105"
             >
               <img
-                src="..\images\pop.png"
-                alt="Event Poster"
+                src=""
+                alt=""
                 className="rounded-xl shadow-2xl w-full h-auto"
               />
             </div>
@@ -389,6 +356,9 @@ export default function Home() {
           </div>
         </div>
       )}
+      */}
+
+      
 
       {/* Modal (simplified visual for now) */}
       {isModalOpen && (
