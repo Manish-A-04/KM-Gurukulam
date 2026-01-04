@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/navigation'; 
 import React from 'react';
 import { GallerySection } from '@/components/ui/gallery-section'; //gallary
 import { type GalleryImage } from '@/components/ui/auto-scroll-carousel'; //gallary
@@ -6,6 +7,8 @@ import AdmissionForm from '@/components/ui/admissionsform';
 import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import AdmissionsInfo from '@/components/ui/admissioninfo';
+
+
 
 
 
@@ -30,12 +33,27 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
    const [showPopup, setShowPopup] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1); // 1: Info, 2: Form
+
+  // Function to handle navigation to Admission Page
+  const handleAdmissionClick = () => {
+    const router = useRouter();
+    router.push('/admission'); 
+  };
+
+  useEffect(() => {
+    setShowPopup(true);
+    AOS.init({
+      duration: 600,
+      once: true    
+    });
+  }, []);
 
   //For AOS library 
   useEffect(() => {
@@ -81,6 +99,7 @@ export default function Home() {
     setIsMenuOpen(false);
   };
 
+  
   const programs = [
     {
       title: 'Playgroup Program',
@@ -316,12 +335,17 @@ export default function Home() {
             curiosity, and confidence.
           </span>
         </p>
+        <div className="pt-2 flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={() => router.push('/admission')}
+            className="px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white text-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 animate-pulse"
+          >
+            Admission Open 2026-27
+          </button>
+        </div>
       </div>
 
-      {/* RIGHT SIDE */}
-      <div className="w-full">
-        <AdmissionsInfo />
-      </div>
+      
 
     </div>
   </div>

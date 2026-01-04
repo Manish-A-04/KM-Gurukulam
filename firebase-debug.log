@@ -1,0 +1,39 @@
+[debug] [2026-01-04T05:48:42.129Z] ----------------------------------------------------------------------
+[debug] [2026-01-04T05:48:42.131Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sande\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-01-04T05:48:42.131Z] CLI Version:   15.1.0
+[debug] [2026-01-04T05:48:42.131Z] Platform:      win32
+[debug] [2026-01-04T05:48:42.131Z] Node Version:  v22.21.0
+[debug] [2026-01-04T05:48:42.132Z] Time:          Sun Jan 04 2026 11:18:42 GMT+0530 (India Standard Time)
+[debug] [2026-01-04T05:48:42.132Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\sande\projects\KM-Gurukulam
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-01-04T05:50:47.255Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-04T05:50:47.255Z] > authorizing via signed-in user (sandeepkumaar193@gmail.com)
+[debug] [2026-01-04T05:50:47.256Z] Checked if tokens are valid: true, expires at: 1767509157433
+[debug] [2026-01-04T05:50:47.256Z] Checked if tokens are valid: true, expires at: 1767509157433
+[debug] [2026-01-04T05:50:47.257Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/toddler-preschool [none]
+[debug] [2026-01-04T05:50:47.860Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/toddler-preschool 403
+[debug] [2026-01-04T05:50:47.860Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/toddler-preschool {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-01-04T05:50:47.860Z] Request to https://firebase.googleapis.com/v1beta1/projects/toddler-preschool had HTTP Error: 403, The caller does not have permission
+[debug] [2026-01-04T05:50:48.067Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/toddler-preschool had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\sande\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\sande\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:322:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project toddler-preschool. Please make sure the project exists and your account has permission to access it.
