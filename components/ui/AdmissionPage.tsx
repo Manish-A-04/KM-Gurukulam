@@ -57,7 +57,7 @@ const AdmissionPage = () => {
             <h2 className="text-lg font-semibold text-gray-800 mb-2">Important Instructions</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm md:text-base">
               <li>
-                <strong>Submission Dates:</strong> Strictly between <span className="font-bold text-red-600">25th March 2026</span> and <span className="font-bold text-red-600">31st March 2026</span>.
+                <strong>Submission Dates: </strong><span className="font-bold text-red-600">25th March 2026</span> to <span className="font-bold text-red-600">31st March 2026</span>.
               </li>
               <li>
                 <strong>Eligibility (LKG):</strong> Minimum age of 3.5 years completed as on 31.03.2025.
@@ -66,11 +66,20 @@ const AdmissionPage = () => {
                 <strong>Required Documents:</strong> Xerox copy of Birth Certificate, Aadhar Copy, and Passport size photo.
               </li>
               <li>
+                <strong>Available Classes:</strong> Playgroup, Pre-KG, LKG & UKG
+              </li>
+              <li>
                 <strong>School Timing:</strong> 9:30 AM to 12:30 PM.
               </li>
+              
+              
+
               <li className="italic text-gray-500">
                 *Note: While the official process requires offline submission, please fill this form to block your inquiry.
               </li>
+              <p className="mt-4 font-semibold text-red-600 text-sm md:text-base">
+                Limited seats available. Register now to block your seat.
+              </p>
             </ul>
           </div>
 
