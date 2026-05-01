@@ -1,190 +1,257 @@
-import React, { useState } from 'react';
-import { db } from '../../firebase'; // Adjust path
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import React, { useState } from "react";
+import { db } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-const AdmissionPage = () => {
+export default function AdmissionPage() {
+  const [showPopup, setShowPopup] = useState(true);
+
   const [formData, setFormData] = useState({
-    parentName: '',
-    childName: '',
-    childDOB: '',
-    classApplying: 'Playgroup', // Default value
-    phone: '',
-    email: ''
+    parentName: "",
+    childName: "",
+    childDOB: "",
+    classApplying: "Playgroup",
+    phone: "",
+    email: "",
   });
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ type: '', text: '' });
+  const [message, setMessage] = useState({ type: "", text: "" });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
-    setMessage({ type: '', text: '' });
+    setMessage({ type: "", text: "" });
 
     try {
-      // Add data to 'admissions' collection in Firebase
       await addDoc(collection(db, "admissions"), {
         ...formData,
         submittedAt: serverTimestamp(),
-        status: "New"
+        status: "New",
       });
 
-      setMessage({ type: 'success', text: 'Application submitted successfully! We will contact you shortly.' });
-      setFormData({ parentName: '', childName: '', childDOB: '', classApplying: 'Playgroup', phone: '', email: '' });
+      setMessage({
+        type: "success",
+        text: "Application submitted successfully! We will contact you shortly.",
+      });
+
+      setFormData({
+        parentName: "",
+        childName: "",
+        childDOB: "",
+        classApplying: "Playgroup",
+        phone: "",
+        email: "",
+      });
     } catch (error) {
-      console.error("Error adding document: ", error);
-      setMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
+      setMessage({
+        type: "error",
+        text: "Something went wrong. Please try again.",
+      });
     }
+
     setLoading(false);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-        
-        {/* --- SECTION 1: INSTRUCTIONS (From Image) --- */}
+    <div className="min-h-screen bg-gray-50 py-10 px-4">
+
+      {/* 🔥 POPUP */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-xl p-6 max-w-md w-full text-center shadow-lg relative">
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-lg font-semibold text-gray-800 mb-3">
+              📢 Admissions Notice
+            </h2>
+
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Admissions for{" "}
+              <span className="font-semibold text-blue-600">
+                Little Orchids Preschool
+              </span>{" "}
+              and{" "}
+              <span className="font-semibold text-blue-600">
+                KM Gurukulam
+              </span>{" "}
+              are handled through this application form.
+            </p>
+
+            <p className="text-sm text-gray-500 mt-3">
+              Please fill the form to apply for either school.
+            </p>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-5 bg-blue-600 text-white px-5 py-2 rounded-full text-sm"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* MAIN CARD */}
+      <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+
+        {/* HEADER */}
         <div className="bg-blue-600 px-6 py-4">
-          <h1 className="text-2xl font-bold text-white text-center">
-            Admissions Open: Academic Year 2026–2027
+          <h1 className="text-xl md:text-2xl font-bold text-white text-center">
+            🎓 Admissions Open 2026–2027
           </h1>
         </div>
 
-        <div className="p-6 md:p-8 space-y-6">
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">Important Instructions</h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm md:text-base">
-              <li>
-                <strong>Submission Dates: </strong><span className="font-bold text-red-600">25th March 2026</span> to <span className="font-bold text-red-600">31st March 2026</span>.
-              </li>
-              <li>
-                <strong>Eligibility (LKG):</strong> Minimum age of 3.5 years completed as on 31.03.2025.
-              </li>
-              <li>
-                <strong>Required Documents:</strong> Xerox copy of Birth Certificate, Aadhar Copy, and Passport size photo.
-              </li>
-              <li>
-                <strong>Available Classes:</strong> Playgroup, Pre-KG, LKG & UKG
-              </li>
-              <li>
-                <strong>School Timing:</strong> 9:30 AM to 12:30 PM.
-              </li>
-              
-              
+        <div className="p-6 md:p-8">
 
-              <li className="italic text-gray-500">
-                *Note: While the official process requires offline submission, please fill this form to block your inquiry.
-              </li>
-              <p className="mt-4 font-semibold text-red-600 text-sm md:text-base">
-                Limited seats available. Register now to block your seat.
-              </p>
-            </ul>
+          {/* TOP NOTE */}
+          <div className="bg-blue-50 border border-blue-200 text-blue-800 text-sm p-3 rounded-md text-center mb-6">
+            🎓 <strong>Little Orchids & KM Gurukulam</strong> Admission Application Panel
           </div>
 
-          <hr className="border-gray-200" />
+          {/* FLEX LAYOUT */}
+          <div className="flex flex-col md:flex-row gap-8">
 
-          {/* --- SECTION 2: ADMISSION FORM --- */}
-          <div>
-            <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">Online Pre-Registration Form</h2>
-            
-            {message.text && (
-              <div className={`p-4 mb-4 rounded ${message.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                {message.text}
+            {/* LEFT - INSTRUCTIONS */}
+            <div className="md:w-1/2 space-y-6 order-2 md:order-1">
+
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  Important Instructions
+                </h2>
+
+                <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
+
+                  <li>Available Classes: Playgroup, Pre-KG, LKG & UKG</li>
+                  <li>School Timing: 9:30 AM to 12:30 PM</li>
+
+                  <li>
+                    <strong>KM Gurukulam Reopening:</strong>{" "}
+                    <span className="text-blue-600 font-semibold">
+                      June 3, 2026
+                    </span>
+                  </li>
+
+                  <li>
+                    <strong>Little Orchids Reopening:</strong>{" "}
+                    <span className="text-red-600 font-semibold">
+                      June 4, 2026
+                    </span>
+                  </li>
+
+                  <li className="italic text-gray-500">
+                    Limited seats available. Submit early to secure admission.
+                  </li>
+
+                </ul>
               </div>
-            )}
 
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Parent Name */}
-              <div className="col-span-1 md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700">Parent / Guardian Name</label>
+            </div>
+
+            {/* RIGHT - FORM */}
+            <div className="md:w-1/2 order-1 md:order-2">
+
+              <h2 className="text-xl font-bold text-gray-800 mb-4 text-center md:text-left">
+                Online Pre-Registration Form
+              </h2>
+
+              {message.text && (
+                <div
+                  className={`p-3 mb-4 rounded ${
+                    message.type === "success"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
+                  }`}
+                >
+                  {message.text}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+
                 <input
                   type="text"
                   name="parentName"
+                  placeholder="Parent Name"
                   required
                   value={formData.parentName}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full border p-2 rounded"
                 />
-              </div>
 
-              {/* Child Name */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Child's Name</label>
                 <input
                   type="text"
                   name="childName"
+                  placeholder="Child Name"
                   required
                   value={formData.childName}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full border p-2 rounded"
                 />
-              </div>
 
-              {/* Child DOB */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
                 <input
                   type="date"
                   name="childDOB"
                   required
                   value={formData.childDOB}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full border p-2 rounded"
                 />
-              </div>
 
-              {/* Class Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Class Applying For</label>
                 <select
                   name="classApplying"
                   value={formData.classApplying}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 bg-white"
+                  className="w-full border p-2 rounded"
                 >
-                  <option value="Playgroup">Playgroup</option>
-                  <option value="Pre-KG">Pre-KG</option>
-                  <option value="LKG">LKG</option>
-                  <option value="UKG">UKG</option>
+                  <option>Playgroup</option>
+                  <option>Pre-KG</option>
+                  <option>LKG</option>
+                  <option>UKG</option>
                 </select>
-              </div>
 
-              {/* Phone */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input
                   type="tel"
                   name="phone"
+                  placeholder="Phone Number"
                   required
-                  pattern="[0-9]{10}"
-                  placeholder="10 digit mobile number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="w-full border p-2 rounded"
                 />
-              </div>
 
-              {/* Submit Button */}
-              <div className="col-span-1 md:col-span-2 pt-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email (optional)"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white 
-                    ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'}`}
+                  className="w-full bg-blue-600 text-white py-3 rounded-md font-medium"
                 >
-                  {loading ? 'Submitting...' : 'Submit Application'}
+                  {loading ? "Submitting..." : "Submit Application"}
                 </button>
-              </div>
 
-            </form>
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default AdmissionPage;
+}
